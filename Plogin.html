@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kalangalala Secondary School - Parent Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #fff8f0 0%, #e9f2ff 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #243a47;
+      min-height: 100vh;
+    }
+    .form-outer-container {
+      max-width: 490px;
+      margin: 60px auto 0 auto;
+      background: #fff9f4;
+      border-radius: 28px;
+      box-shadow: 0 10px 44px 0 rgba(200,135,64,0.15), 0 3px 13px 0 rgba(44,104,180,0.10);
+      padding: 0 0 36px 0;
+      transition: box-shadow 0.3s;
+      border: 2.5px solid #e2b572;
+    }
+    .form-outer-container:hover {
+      box-shadow: 0 18px 68px 0 #e2b57233, 0 7px 25px 0 #e2b57211;
+    }
+    .school-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 34px;
+      padding-bottom: 7px;
+    }
+    .school-logo {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #f8e3c1;
+      box-shadow: 0 3px 12px 0 #ffe3bd77;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+      border: 3px solid #e2b572;
+    }
+    .school-heading {
+      text-align: center;
+      font-size: 1.30em;
+      font-weight: 800;
+      color: #b87b17;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 12px #ffe3bd55;
+      margin-bottom: 0;
+      margin-top: 0;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    }
+    .form-container {
+      max-width: 395px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 24px;
+      margin-top: 18px;
+    }
+    .form-header h2 {
+      font-size: 1.13em;
+      color: #e2b572;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      margin: 0 0 8px 0;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    }
+    .form-header p {
+      font-size: 1em;
+      color: #b9935e;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .login-form label {
+      font-weight: 600;
+      color: #a37627;
+      margin-bottom: 5px;
+      display: block;
+      letter-spacing: 0.3px;
+      font-size: 1em;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="number"] {
+      width: 100%;
+      padding: 11px 13px;
+      margin-bottom: 19px;
+      border: 2px solid #f3e1cb;
+      border-radius: 9px;
+      background: #fffdf9;
+      font-size: 1em;
+      transition: border 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      color: #23427a;
+    }
+    .login-form input[type="text"]:focus,
+    .login-form input[type="password"]:focus,
+    .login-form input[type="number"]:focus {
+      border-color: #e2b572;
+      box-shadow: 0 0 0 2px #ffe3bd7a;
+      background: #fff;
+    }
+    .name-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+    .name-row .name-col {
+      flex: 1;
+      min-width: 0;
+    }
+    .login-form button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(90deg, #e2b572 70%, #f7c873 100%);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 13px 0;
+      font-size: 1.13em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 2px 18px 0 #e2b57225;
+      transition: background 0.18s, transform 0.11s;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    }
+    .login-form button[type="submit"]:hover {
+      background: linear-gradient(90deg, #b87b17 60%, #e2b572 100%);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 18px;
+      color: #b87b17;
+      font-size: 1em;
+    }
+    .login-link a {
+      color: #e2b572;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 6px;
+      transition: color 0.13s;
+    }
+    .login-link a:hover {
+      color: #b87b17;
+      text-decoration: underline;
+    }
+    .form-icon {
+      font-size: 2em;
+      color: #e2b572;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 12px #ffe3bd66);
+    }
+    .forgot-link {
+      display: block;
+      text-align: right;
+      color: #e2b572;
+      font-size: 0.99em;
+      font-weight: 600;
+      margin-top: -13px;
+      margin-bottom: 17px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.12s;
+    }
+    .forgot-link:hover {
+      color: #b87b17;
+      text-decoration: underline;
+    }
+    .error-message {
+      color: #cc2929;
+      font-size: 1em;
+      margin: -6px 0 18px 0;
+      min-height: 22px;
+      text-align: center;
+      font-weight: 600;
+    }
+    /* Modal */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(36,48,77,0.13);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 26px 22px 16px 22px;
+      border-radius: 16px;
+      box-shadow: 0 6px 30px 0 #e2b57233;
+      min-width: 270px;
+      max-width: 95vw;
+      position: relative;
+    }
+    .modal-content h3 {
+      color: #b87b17;
+      margin: 0 0 16px 0;
+      font-size: 1.07em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .modal-content label {
+      color: #a37627;
+      font-weight: 600;
+      font-size: 1em;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .close-modal {
+      position: absolute;
+      top: 8px; right: 11px;
+      background: none;
+      border: none;
+      font-size: 1.3em;
+      color: #e2b572;
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+    .close-modal:hover {
+      color: #e21e3e;
+    }
+    .modal-content .verify-info {
+      font-size: 0.97em;
+      color: #42558e;
+      margin-bottom: 9px;
+    }
+    @media (max-width: 600px) {
+      .form-outer-container {
+        padding: 0 0 14px 0;
+      }
+      .form-container {
+        padding: 0 2vw;
+      }
+      .school-logo-container {
+        padding-top: 16px;
+      }
+      .school-logo {
+        width: 54px;
+        height: 54px;
+      }
+      .school-heading {
+        font-size: 1em;
+      }
+      .form-header h2 { font-size: 1em; }
+      .modal-content { padding: 12px 3vw 8px 3vw;}
+    }
+    /* Unique for parents */
+    .form-outer-container { border: 2.5px solid #e2b572; }
+    .form-header h2 { letter-spacing: 1.5px; }
+    .form-container { background: none; }
+  </style>
+</head>
+<body>
+  <div class="form-outer-container">
+    <div class="school-logo-container">
+      <!-- Badilisha src ya img hapa kama una logo ya shule -->
+      <img class="school-logo" src="logo.jpg" alt="Kalangalala Secondary School Logo">
+      <div class="school-heading">KALANGALALA SECONDARY SCHOOL</div>
+    </div>
+    <div class="form-container">
+      <div class="form-header">
+        <div class="form-icon">
+          <i class="fa-solid fa-user-group"></i>
+        </div>
+        <h2>PARENT LOGIN FORM</h2>
+        <p>Ingiza majina yako yote matatu na password uliyotumia kuregister.</p>
+      </div>
+      <form class="login-form" autocomplete="off" onsubmit="return handleLogin(event)">
+        <div class="name-row">
+          <div class="name-col">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Jina la kwanza" required pattern="^[A-Za-z]{2,}$" maxlength="30" autocomplete="off">
+          </div>
+          <div class="name-col">
+            <label for="middlename">Middle Name</label>
+            <input type="text" id="middlename" name="middlename" placeholder="Jina la kati" required pattern="^[A-Za-z]{2,}$" maxlength="30" autocomplete="off">
+          </div>
+          <div class="name-col">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Jina la mwisho" required pattern="^[A-Za-z]{2,}$" maxlength="30" autocomplete="off">
+          </div>
+        </div>
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Andika Password" required minlength="8" autocomplete="current-password">
+          <button type="button" class="toggle-password" onclick="togglePassword()">
+            <i id="eye-icon" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <a id="reset-link" class="forgot-link" style="display:none;" onclick="showModal()">Umesahau password? Reset hapa</a>
+        <button type="submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+      </form>
+      <div class="login-link">
+        Hauna akaunti?
+        <a href="accountP.html"><i class="fa-solid fa-user-plus"></i> Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Reset Modal -->
+  <div id="reset-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h3>Reset Password</h3>
+      <form id="reset-form" autocomplete="off" onsubmit="return handleReset(event)">
+        <label for="prime">Prime Number ya Mtoto</label>
+        <input type="number" id="prime" name="prime" placeholder="Ingiza prime number ya mtoto wako" required>
+        <div class="verify-info">Baada ya kubofya "Reset", utapokea maelekezo ya kuweka password mpya (mfano tu, implement backend kwa production).</div>
+        <button type="submit" style="margin-bottom:7px;">
+          <i class="fa-solid fa-key"></i> Reset
+        </button>
+        <div id="reset-success" style="color:#218838;font-size:1.01em;margin-top:11px;"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Password eye
+    function togglePassword() {
+      const passInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passInput.type = "password";
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Simulate password check (for demo, real app uses backend)
+    let failed = false;
+    function handleLogin(e) {
+      e.preventDefault();
+      const fname = document.getElementById('firstname').value.trim();
+      const mname = document.getElementById('middlename').value.trim();
+      const lname = document.getElementById('lastname').value.trim();
+      const pass = document.getElementById('password').value;
+      const errMsg = document.getElementById('error-message');
+      // Simulate: if password is not "Parent@123", fail
+      if (pass !== "Parent@123") {
+        errMsg.textContent = "Majina au Password sio sahihi!";
+        document.getElementById('reset-link').style.display = "block";
+        failed = true;
+        return false;
+      } else {
+        errMsg.textContent = "";
+        document.getElementById('reset-link').style.display = "none";
+        // Redirect or submit
+        alert('Login successful!');
+        // window.location.href = "parent-dashboard.html";
+        return true;
+      }
+    }
+
+    // RESET PASSWORD MODAL LOGIC
+    function showModal() {
+      document.getElementById('reset-modal').style.display = "flex";
+      document.getElementById('reset-form').reset();
+      document.getElementById('reset-success').textContent = "";
+    }
+    function closeModal() {
+      document.getElementById('reset-modal').style.display = "none";
+    }
+
+    // Handle reset form
+    function handleReset(e) {
+      e.preventDefault();
+      const prime = document.getElementById('prime').value;
+      if (!isPrime(prime)) {
+        document.getElementById('reset-success').textContent = "Namba uliyoingiza siyo prime number. Tafadhali jaribu tena.";
+        return false;
+      }
+      document.getElementById('reset-success').textContent = "Tafadhali fuata maelekezo zaidi kwenye simu/email yako kuweka password mpya.";
+      setTimeout(closeModal, 3500);
+      return false;
+    }
+    // Prime number check
+    function isPrime(n) {
+      n = parseInt(n, 10);
+      if (isNaN(n) || n < 2) return false;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

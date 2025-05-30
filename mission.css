@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Nafasi sawa kati ya containers zote */
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card img,
+.card video {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 14px 0;
+    display: flex;
+    justify-content: center;
+    background: #5db7e4;
+    border-radius: 18px;
+    position: fixed;
+    margin: top;
+    top: -18px;
+    left: 18%;
+
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 18px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+nav ul li a:hover {
+    background: #1b3358;
+    color: #ffd700;
+}
+
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --navbar-bg: #0a2342;
+  --navbar-text: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #eee;
+  --navbar-bg: #101e33;
+  --navbar-text: #ffd700;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+.theme-switcher label,
+.theme-switcher select {
+  color: var(--navbar-text);
+  font-size: 1em;
+  margin-left: 0.5em;
+  background: transparent;
+  border: none;
+}
+
+.theme-switcher select {
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+  border: 1px solid #fff2;
+}

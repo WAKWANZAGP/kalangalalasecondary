@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Programs za Shule ya Sekondari</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f8fcff 0%, #e1eaf6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #162243;
+    }
+    .programs-container {
+      max-width: 950px;
+      margin: 44px auto 40px auto;
+      background: #fff;
+      border-radius: 26px;
+      box-shadow: 0 7px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 45px 5vw 45px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .programs-container:hover {
+      box-shadow: 0 13px 55px 0 rgba(31,49,116,0.19), 0 6px 22px 0 rgba(31,41,60,0.13);
+    }
+    .programs-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .programs-header h1 {
+      font-size: 2.35em;
+      margin: 0;
+      color: #1c3879;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px #c1cbea2a;
+    }
+    .programs-header p {
+      font-size: 1.14em;
+      color: #56659b;
+      margin: 14px 0 0 0;
+      line-height: 1.43;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 31px;
+      margin-top: 37px;
+    }
+
+    .program-card {
+      background: linear-gradient(108deg, #e6f0fd 85%, #f7f9ff 100%);
+      border-radius: 18px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.095);
+      padding: 28px 25px 26px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.13s;
+      position: relative;
+    }
+    .program-card:hover {
+      box-shadow: 0 7px 25px 0 #74c7fd95, 0 2px 12px 0 rgba(41,70,140,0.16);
+      transform: translateY(-4px) scale(1.018);
+    }
+    .program-card .program-icon {
+      font-size: 2.25em;
+      color: #4576b8;
+      margin-bottom: 13px;
+      transition: color 0.22s;
+      filter: drop-shadow(0 3px 8px #dbe8fa);
+    }
+    .program-card:hover .program-icon {
+      color: #1cb0f6;
+      filter: drop-shadow(0 4px 18px #b2eaff);
+    }
+    .program-title {
+      font-size: 1.18em;
+      font-weight: 700;
+      color: #1c3879;
+      margin-bottom: 8px;
+      letter-spacing: 1.2px;
+    }
+    .program-desc {
+      font-size: 1em;
+      color: #4d587e;
+      margin-bottom: 0;
+      line-height: 1.63;
+    }
+    .program-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #1cb0f6;
+      color: #fff;
+      font-size: 0.96em;
+      padding: 3px 14px 3px 13px;
+      border-radius: 14px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #b2eaff88;
+      letter-spacing: .5px;
+      animation: badge-glow 2.1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #b2eaff88;}
+      100% { box-shadow: 0 2px 25px 0 #1cb0f6cc;}
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .programs-container {
+        padding: 13px 1vw 17px 1vw;
+      }
+      .programs-header h1 {
+        font-size: 1.27em;
+      }
+      .program-card {
+        padding: 15px 5px 15px 12px;
+      }
+      .programs-grid {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="programs-container">
+    <div class="programs-header">
+      <h1>
+        <i class="fa-solid fa-layer-group" style="color:#1cb0f6; margin-right:10px;"></i>
+        Programs Muhimu za Shule ya Sekondari (Kidato I - VI)
+      </h1>
+      <p>
+        Hizi ni programs kuu zinazotakiwa kutolewa katika shule ya sekondari inayojumuisha kidato cha kwanza hadi cha sita, zikilenga kukuza elimu bora, vipaji na ustawi wa mwanafunzi.
+      </p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-book-open"></i></span>
+        <span class="program-title">Programu ya Elimu ya Msingi wa Sekondari (O-Level)</span>
+        <span class="program-desc">
+          Inahusu masomo yote ya lazima na ya ziada kwa kidato cha I-IV, yakiwemo Kiswahili, Kiingereza, Hisabati, Sayansi, Historia, Jiografia, Uraia, Biashara, ICT n.k.
+        </span>
+        <span class="program-badge">O-Level</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span class="program-title">Programu ya Elimu ya Juu ya Sekondari (A-Level)</span>
+        <span class="program-desc">
+          Inahusu masomo ya mchepuo kwa kidato cha V-VI kama PCM, PCB, EGM, HGL, CBG, HKL n.k., pamoja na maandalizi ya masomo ya juu na taaluma maalum.
+        </span>
+        <span class="program-badge">A-Level</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-flask"></i></span>
+        <span class="program-title">Programu ya Sayansi na Teknolojia</span>
+        <span class="program-desc">
+          Inahusisha mafunzo ya vitendo na nadharia katika masomo ya sayansi (Biology, Chemistry, Physics) na matumizi ya TEHAMA kwa maendeleo ya kisasa.
+        </span>
+        <span class="program-badge">Sayansi</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-language"></i></span>
+        <span class="program-title">Programu ya Lugha na Mawasiliano</span>
+        <span class="program-desc">
+          Kukuza uwezo wa lugha rasmi (Kiswahili, Kiingereza, French) na stadi za mawasiliano kwa maandishi, maneno na kidigitali.
+        </span>
+        <span class="program-badge">Lugha</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-users"></i></span>
+        <span class="program-title">Programu ya Uongozi na Uraia</span>
+        <span class="program-desc">
+          Mafunzo ya uraia, uongozi, maadili, haki za binadamu, na uwajibikaji kwa jamii na taifa.
+        </span>
+        <span class="program-badge">Uraia</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-futbol-ball"></i></span>
+        <span class="program-title">Programu ya Michezo na Sanaa</span>
+        <span class="program-desc">
+          Kuibua na kukuza vipaji vya michezo (football, basketball, athletics n.k.), sanaa za maonyesho, muziki na uchoraji ili kukuza afya na ubunifu.
+        </span>
+        <span class="program-badge">Vipaji</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-seedling"></i></span>
+        <span class="program-title">Programu ya Mazingira na Kilimo</span>
+        <span class="program-desc">
+          Mafunzo ya utunzaji wa mazingira, bustani, kilimo bora na miradi ya kijani kwa maendeleo endelevu.
+        </span>
+        <span class="program-badge">Mazingira</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-heartbeat"></i></span>
+        <span class="program-title">Programu ya Afya na Elimu ya Jamii</span>
+        <span class="program-desc">
+          Elimu ya afya ya msingi, ushauri nasaha, lishe, usafi, na elimu kuhusu magonjwa ya jamii na kinga.
+        </span>
+        <span class="program-badge">Afya</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-hand-holding-heart"></i></span>
+        <span class="program-title">Programu ya Ustawi na Ushirikiano wa Jamii</span>
+        <span class="program-desc">
+          Kuendeleza ustawi wa wanafunzi, malezi, ushauri nasaha, huduma kwa jamii na kushirikisha wazazi.
+        </span>
+        <span class="program-badge">Jamii</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-lightbulb"></i></span>
+        <span class="program-title">Programu ya Ubunifu na Ujasiriamali</span>
+        <span class="program-desc">
+          Kukuza ubunifu, ujasiriamali, stadi za maisha na uwezo wa kutatua changamoto za kimaisha na kijamii.
+        </span>
+        <span class="program-badge">Ujasiriamali</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-globe-africa"></i></span>
+        <span class="program-title">Programu ya Global Competence</span>
+        <span class="program-desc">
+          Kujenga uelewa wa masuala ya kimataifa, utamaduni, na uwezo wa kushindana katika mazingira mapana duniani.
+        </span>
+        <span class="program-badge">Global</span>
+      </div>
+      <div class="program-card">
+        <span class="program-icon"><i class="fas fa-user-shield"></i></span>
+        <span class="program-title">Programu ya Usalama Shuleni</span>
+        <span class="program-desc">
+          Mafunzo na mikakati ya usalama wa wanafunzi na mazingira ya shule dhidi ya majanga, uonevu na vitisho vingine.
+        </span>
+        <span class="program-badge">Usalama</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

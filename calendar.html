@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kalenda & Ratiba za Shule</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f8fcff 0%, #e1eaf6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #162243;
+    }
+    .calendar-container {
+      max-width: 1100px;
+      margin: 48px auto 44px auto;
+      background: #fff;
+      border-radius: 27px;
+      box-shadow: 0 7px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 48px 5vw 48px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .calendar-container:hover {
+      box-shadow: 0 13px 55px 0 rgba(31,49,116,0.19), 0 6px 22px 0 rgba(31,41,60,0.13);
+    }
+    .calendar-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .calendar-header h1 {
+      font-size: 2.25em;
+      margin: 0;
+      color: #1c3879;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px #c1cbea2a;
+    }
+    .calendar-header p {
+      font-size: 1.16em;
+      color: #56659b;
+      margin: 16px 0 0 0;
+      line-height: 1.43;
+    }
+    .calendar-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 38px;
+      margin-top: 42px;
+    }
+    .calendar-card {
+      background: linear-gradient(108deg, #e6f0fd 85%, #f7f9ff 100%);
+      border-radius: 18px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.095);
+      padding: 28px 25px 32px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.13s;
+      position: relative;
+    }
+    .calendar-card:hover {
+      box-shadow: 0 7px 25px 0 #1cb0f695, 0 2px 12px 0 rgba(41,70,140,0.16);
+      transform: translateY(-4px) scale(1.018);
+    }
+    .calendar-card .calendar-icon {
+      font-size: 2.3em;
+      color: #4576b8;
+      margin-bottom: 15px;
+      transition: color 0.22s;
+      filter: drop-shadow(0 3px 8px #dbe8fa);
+    }
+    .calendar-card:hover .calendar-icon {
+      color: #1cb0f6;
+      filter: drop-shadow(0 4px 18px #b2eaff);
+    }
+    .calendar-title {
+      font-size: 1.17em;
+      font-weight: 700;
+      color: #1c3879;
+      margin-bottom: 10px;
+      letter-spacing: 1.1px;
+    }
+    .calendar-desc {
+      font-size: 1em;
+      color: #4d587e;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+    .calendar-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #1cb0f6;
+      color: #fff;
+      font-size: 0.95em;
+      padding: 3px 14px 3px 13px;
+      border-radius: 14px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #b2eaff88;
+      letter-spacing: .5px;
+      animation: badge-glow 2.1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #b2eaff88;}
+      100% { box-shadow: 0 2px 25px 0 #1cb0f6cc;}
+    }
+    /* Timetable Table Style */
+    .sample-timetable {
+      width: 100%;
+      margin-top: 18px;
+      margin-bottom: 5px;
+      border-collapse: collapse;
+      background: #f8fcff;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.96em;
+      box-shadow: 0 1px 8px 0 #b2eaff10;
+    }
+    .sample-timetable th,
+    .sample-timetable td {
+      padding: 11px 7px;
+      text-align: center;
+      border-bottom: 1px solid #e5eefd;
+    }
+    .sample-timetable th {
+      background: #eaf5ff;
+      color: #1c3879;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+    .sample-timetable tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .calendar-container {
+        padding: 13px 1vw 17px 1vw;
+      }
+      .calendar-header h1 {
+        font-size: 1.19em;
+      }
+      .calendar-card {
+        padding: 15px 7px 15px 12px;
+      }
+      .calendar-sections {
+        gap: 13px;
+      }
+      .sample-timetable th,
+      .sample-timetable td {
+        padding: 7px 2px;
+        font-size: 0.92em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <h1>
+        <i class="fa-solid fa-calendar-days" style="color:#1cb0f6; margin-right:10px;"></i>
+        Kalenda na Ratiba Muhimu za Shule
+      </h1>
+      <p>
+        Hizi ni kalenda na ratiba muhimu zinazotakiwa kuwepo shuleni ili kuwezesha ufanisi wa shughuli zote za kitaaluma, kijamii na kiutawala. <br>
+        Zimepangwa kwa muundo wa kitaalamu na zinaweza kuboreshwa kulingana na mahitaji ya shule.
+      </p>
+    </div>
+    <div class="calendar-sections">
+      <!-- School Academic Calendar -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-calendar-alt"></i></span>
+        <span class="calendar-title">Kalenda ya Mwaka wa Masomo</span>
+        <span class="calendar-desc">
+          Hii ni ratiba rasmi ya vipindi vya masomo, likizo, mitihani, na shughuli muhimu za mwaka mzima kama vile usajili, mahafali, warsha, na semina.
+        </span>
+        <span class="calendar-badge">Kalenda</span>
+      </div>
+      <!-- Weekly Class Timetable -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-clock"></i></span>
+        <span class="calendar-title">Ratiba ya Vipindi (Class Timetable)</span>
+        <span class="calendar-desc">
+          Ratiba ya kila siku ya masomo kwa kila darasa, ikionyesha muda, somo, na mwalimu husika. <br>
+          <b>Mfano:</b>
+          <table class="sample-timetable">
+            <tr>
+              <th>Saa</th>
+              <th>Jumatatu</th>
+              <th>Jumanne</th>
+              <th>Jumatano</th>
+              <th>Alhamisi</th>
+              <th>Ijumaa</th>
+            </tr>
+            <tr>
+              <td>8:00-9:00</td>
+              <td>Hisabati</td>
+              <td>Biolojia</td>
+              <td>Kiswahili</td>
+              <td>English</td>
+              <td>Geography</td>
+            </tr>
+            <tr>
+              <td>9:00-10:00</td>
+              <td>English</td>
+              <td>Physics</td>
+              <td>Chemistry</td>
+              <td>Mathematics</td>
+              <td>History</td>
+            </tr>
+            <tr>
+              <td>10:00-10:30</td>
+              <td colspan="5">Mapumziko</td>
+            </tr>
+            <tr>
+              <td>10:30-11:30</td>
+              <td>Geography</td>
+              <td>Kiswahili</td>
+              <td>Biology</td>
+              <td>Chemistry</td>
+              <td>Physics</td>
+            </tr>
+          </table>
+        </span>
+        <span class="calendar-badge">Ratiba</span>
+      </div>
+      <!-- Exam Timetable -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-list-ol"></i></span>
+        <span class="calendar-title">Ratiba ya Mitihani (Exam Timetable)</span>
+        <span class="calendar-desc">
+          Ratiba maalum ya mitihani ya ndani na ya kitaifa (Midterm, Mock, Pre-Necta, Necta) kwa kila darasa na mchepuo.
+        </span>
+        <span class="calendar-badge">Mitihani</span>
+      </div>
+      <!-- Co-curricular Activities Calendar -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-futbol-ball"></i></span>
+        <span class="calendar-title">Kalenda ya Shughuli za Mitaani (Co-curricular)</span>
+        <span class="calendar-desc">
+          Kalenda ya matukio kama vile michezo, sanaa, vilabu, semina, safari za kielimu na mashindano.
+        </span>
+        <span class="calendar-badge">Co-curricular</span>
+      </div>
+      <!-- Duty Roster -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-user-check"></i></span>
+        <span class="calendar-title">Ratiba ya Zamu (Duty Roster)</span>
+        <span class="calendar-desc">
+          Orodha ya zamu kwa walimu, wanafunzi au wafanyakazi kuhusu usimamizi wa usafi, ulinzi, na shughuli nyingine za shule.
+        </span>
+        <span class="calendar-badge">Zamu</span>
+      </div>
+      <!-- Parents/Staff Meetings Calendar -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-users"></i></span>
+        <span class="calendar-title">Kalenda ya Vikao/Mikutano</span>
+        <span class="calendar-desc">
+          Ratiba ya vikao vya wazazi, walimu, bodi ya shule, na kamati mbalimbali za maendeleo.
+        </span>
+        <span class="calendar-badge">Vikao</span>
+      </div>
+      <!-- School Events Calendar -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-bullhorn"></i></span>
+        <span class="calendar-title">Kalenda ya Matukio Maalum (Events)</span>
+        <span class="calendar-desc">
+          Kalenda ya matukio muhimu kama mahafali, siku ya shule, maadhimisho ya kitaifa, na uzinduzi wa miradi.
+        </span>
+        <span class="calendar-badge">Events</span>
+      </div>
+      <!-- Staff Timetable -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-user-tie"></i></span>
+        <span class="calendar-title">Ratiba ya Walimu (Staff Timetable)</span>
+        <span class="calendar-desc">
+          Ratiba rasmi ya majukumu, vipindi na zamu kwa walimu wote wa shule.
+        </span>
+        <span class="calendar-badge">Walimu</span>
+      </div>
+      <!-- Laboratory/Resource Timetable -->
+      <div class="calendar-card">
+        <span class="calendar-icon"><i class="fas fa-flask"></i></span>
+        <span class="calendar-title">Ratiba ya Maabara/Matumizi ya Rasilimali</span>
+        <span class="calendar-desc">
+          Ratiba ya matumizi ya maabara, maktaba, na vifaa vingine vya shule ili kuhakikisha upatikanaji na usimamizi mzuri.
+        </span>
+        <span class="calendar-badge">Rasilimali</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kalangalala Secondary School - Student Registration Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f7fafd 0%, #e2f1ff 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a2748;
+      min-height: 100vh;
+    }
+    .form-outer-container {
+      max-width: 500px;
+      margin: 55px auto 0 auto;
+      background: #f7fbff;
+      border-radius: 27px;
+      box-shadow: 0 10px 44px 0 rgba(44,104,180,0.14), 0 3px 13px 0 rgba(31,61,110,0.09);
+      padding: 0 0 34px 0;
+      transition: box-shadow 0.3s;
+    }
+    .form-outer-container:hover {
+      box-shadow: 0 18px 68px 0 #4fc3f733, 0 7px 25px 0 #1cb0f614;
+    }
+    .school-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 35px;
+      padding-bottom: 7px;
+    }
+    .school-logo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      background: #f3f7fe;
+      box-shadow: 0 3px 12px 0 #b2eaff66;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+      border: 3px solid #1cb0f6;
+    }
+    .school-heading {
+      text-align: center;
+      font-size: 1.43em;
+      font-weight: 800;
+      color: #1e80c1;
+      letter-spacing: 1.6px;
+      text-shadow: 0 2px 12px #b2eaff3b;
+      margin-bottom: 0;
+      margin-top: 0;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    }
+    .form-container {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 0 34px;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 26px;
+      margin-top: 18px;
+    }
+    .form-header h2 {
+      font-size: 1.28em;
+      color: #2697c5;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      margin: 0 0 8px 0;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    }
+    .form-header p {
+      font-size: 1em;
+      color: #4c6d96;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .register-form label {
+      font-weight: 600;
+      color: #16517d;
+      margin-bottom: 5px;
+      display: block;
+      letter-spacing: 0.3px;
+      font-size: 1em;
+    }
+    .register-form input[type="text"],
+    .register-form input[type="password"] {
+      width: 100%;
+      padding: 11px 13px;
+      margin-bottom: 19px;
+      border: 2px solid #b8d8f9;
+      border-radius: 9px;
+      background: #f7fbff;
+      font-size: 1em;
+      transition: border 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      color: #23427a;
+    }
+    .register-form input[type="text"]:focus,
+    .register-form input[type="password"]:focus {
+      border-color: #36c3ff;
+      box-shadow: 0 0 0 2px #b2eaff5a;
+      background: #fff;
+    }
+    .name-row {
+      display: flex;
+      gap: 12px;
+    }
+    .name-row .name-col {
+      flex: 1;
+      min-width: 0;
+    }
+    .password-rules {
+      font-size: 0.96em;
+      color: #6d7ea3;
+      margin-top: -12px;
+      margin-bottom: 17px;
+      padding-left: 5px;
+      line-height: 1.6;
+    }
+    .register-form button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(90deg, #36c3ff 70%, #1e80c1 100%);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 13px 0;
+      font-size: 1.12em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 2px 18px 0 #1cb0f625;
+      transition: background 0.18s, transform 0.11s;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    }
+    .register-form button[type="submit"]:hover {
+      background: linear-gradient(90deg, #1e80c1 60%, #36c3ff 100%);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 19px;
+      color: #2483b3;
+      font-size: 1em;
+    }
+    .login-link a {
+      color: #36c3ff;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 6px;
+      transition: color 0.13s;
+    }
+    .login-link a:hover {
+      color: #1e80c1;
+      text-decoration: underline;
+    }
+    .form-icon {
+      font-size: 2em;
+      color: #36c3ff;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 12px #b2eaff55);
+    }
+    /* Password toggle eye */
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 19px;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #7ea3d9;
+      font-size: 1.17em;
+      z-index: 5;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .toggle-password:hover {
+      color: #36c3ff;
+    }
+    .pass-feedback,
+    .conf-feedback {
+      font-size: 0.96em;
+      color: #cc2929;
+      margin: -13px 0 16px 5px;
+      min-height: 19px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .form-outer-container {
+        padding: 0 0 16px 0;
+      }
+      .form-container {
+        padding: 0 2vw;
+      }
+      .school-logo-container {
+        padding-top: 14px;
+      }
+      .school-logo {
+        width: 57px;
+        height: 57px;
+      }
+      .school-heading {
+        font-size: 1em;
+      }
+      .form-header h2 { font-size: 1em; }
+      .name-row { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-outer-container">
+    <div class="school-logo-container">
+      <!-- Badilisha src ya img hapa kama una logo ya shule -->
+      <img class="school-logo" src="logo.jpg" alt="Kalangalala Secondary School Logo">
+      <div class="school-heading">KALANGALALA SECONDARY SCHOOL</div>
+    </div>
+    <div class="form-container">
+      <div class="form-header">
+        <div class="form-icon">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <h2>STUDENT REGISTRATION FORM</h2>
+        <p>Tafadhali jaza majina yako kamili na password yenye viwango vya juu vya usalama.</p>
+      </div>
+      <form class="register-form" autocomplete="off" onsubmit="return validateForm(event)">
+        <div class="name-row">
+          <div class="name-col">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Jina la kwanza" required pattern="^[A-Za-z]{2,}$" maxlength="30" autocomplete="off">
+          </div>
+          <div class="name-col">
+            <label for="middlename">Middle Name</label>
+            <input type="text" id="middlename" name="middlename" placeholder="Jina la kati" required pattern="^[A-Za-z]{2,}$" maxlength="30" autocomplete="off">
+          </div>
+          <div class="name-col">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Jina la mwisho" required pattern="^[A-Za-z]{2,}$" maxlength="30" autocomplete="off">
+          </div>
+        </div>
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Andika Password" required minlength="8" autocomplete="new-password" oninput="validatePassword(this.value)">
+          <button type="button" class="toggle-password" onclick="togglePassword('password','eye-icon')">
+            <i id="eye-icon" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <div class="password-rules">
+          Password lazima iwe na:<br>
+          <span id="length-rule">• Angalau herufi 8</span><br>
+          <span id="capital-rule">• Herufi kubwa (A-Z)</span><br>
+          <span id="number-rule">• Namba (0-9)</span><br>
+          <span id="special-rule">• Special character (!@#$%^&* n.k.)</span>
+        </div>
+        <span id="pass-feedback" class="pass-feedback"></span>
+
+        <label for="confirm-password">Thibitisha Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Andika tena Password" required minlength="8" autocomplete="new-password" oninput="validateConfirmPassword()">
+          <button type="button" class="toggle-password" onclick="togglePassword('confirm-password','eye-icon2')">
+            <i id="eye-icon2" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <span id="conf-feedback" class="conf-feedback"></span>
+
+        <button type="submit">
+          <i class="fa-solid fa-user-plus"></i> Sajili Akaunti
+        </button>
+      </form>
+      <div class="login-link">
+        Tayari una akaunti?
+        <a href="STlogin.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Password Show/Hide for both fields
+    function togglePassword(inputId, eyeId) {
+      const passInput = document.getElementById(inputId);
+      const eyeIcon = document.getElementById(eyeId);
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passInput.type = "password";
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Password validation
+    function validatePassword(value) {
+      const lengthRule = document.getElementById("length-rule");
+      const capitalRule = document.getElementById("capital-rule");
+      const numberRule = document.getElementById("number-rule");
+      const specialRule = document.getElementById("special-rule");
+      let passFeedback = "";
+
+      // Rules
+      const isLong = value.length >= 8;
+      const hasCap = /[A-Z]/.test(value);
+      const hasNum = /\d/.test(value);
+      const hasSpecial = /[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"'<>,\.\?\/\\|~`]/.test(value);
+
+      // UI feedback coloring
+      lengthRule.style.color = isLong ? "#26a626" : "#cc2929";
+      capitalRule.style.color = hasCap ? "#26a626" : "#cc2929";
+      numberRule.style.color = hasNum ? "#26a626" : "#cc2929";
+      specialRule.style.color = hasSpecial ? "#26a626" : "#cc2929";
+
+      if (!isLong) passFeedback = "Password ni fupi, weka angalau herufi 8.";
+      else if (!hasCap) passFeedback = "Weka angalau herufi kubwa moja.";
+      else if (!hasNum) passFeedback = "Weka angalau namba moja.";
+      else if (!hasSpecial) passFeedback = "Weka special character moja (!@#$%^&* n.k.).";
+      else passFeedback = "";
+
+      document.getElementById("pass-feedback").textContent = passFeedback;
+
+      // Check confirm password in real-time
+      validateConfirmPassword();
+    }
+
+    // Confirm password validation
+    function validateConfirmPassword() {
+      const pass = document.getElementById("password").value;
+      const conf = document.getElementById("confirm-password").value;
+      let confFeedback = "";
+      if (conf && pass !== conf) {
+        confFeedback = "Password hazifanani.";
+      } else {
+        confFeedback = "";
+      }
+      document.getElementById("conf-feedback").textContent = confFeedback;
+    }
+
+    // Form validation before submit
+    function validateForm(e) {
+      // Validate names
+      const fname = document.getElementById('firstname').value.trim();
+      const mname = document.getElementById('middlename').value.trim();
+      const lname = document.getElementById('lastname').value.trim();
+      const namePattern = /^[A-Za-z]{2,}$/;
+
+      let valid = true;
+      if (!namePattern.test(fname) || !namePattern.test(mname) || !namePattern.test(lname)) {
+        alert("Tafadhali hakikisha majina yote yana herufi zaidi ya moja na bila namba/special char.");
+        valid = false;
+      }
+
+      // Validate password
+      const pass = document.getElementById('password').value;
+      const conf = document.getElementById('confirm-password').value;
+      const isLong = pass.length >= 8;
+      const hasCap = /[A-Z]/.test(pass);
+      const hasNum = /\d/.test(pass);
+      const hasSpecial = /[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"'<>,\.\?\/\\|~`]/.test(pass);
+
+      if (!(isLong && hasCap && hasNum && hasSpecial)) {
+        document.getElementById("pass-feedback").textContent = "Password haijakidhi vigezo vyote.";
+        valid = false;
+      } else {
+        document.getElementById("pass-feedback").textContent = "";
+      }
+
+      if (pass !== conf) {
+        document.getElementById("conf-feedback").textContent = "Password hazifanani.";
+        valid = false;
+      } else {
+        document.getElementById("conf-feedback").textContent = "";
+      }
+
+      if (!valid) {
+        e.preventDefault();
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

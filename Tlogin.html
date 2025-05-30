@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kalangalala Secondary School - Teachers Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #eaf2ff 0%, #e8e8e8 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #183055;
+      min-height: 100vh;
+    }
+    .form-outer-container {
+      max-width: 420px;
+      margin: 60px auto 0 auto;
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 8px 40px 0 rgba(31,49,116,0.18), 0 2px 8px 0 rgba(31,41,60,0.08);
+      padding: 0 0 32px 0;
+      transition: box-shadow 0.3s;
+    }
+    .form-outer-container:hover {
+      box-shadow: 0 12px 60px 0 #3370f21c, 0 6px 22px 0 #1cb0f616;
+    }
+    .school-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 32px;
+      padding-bottom: 8px;
+    }
+    .school-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #f3f7fe;
+      box-shadow: 0 3px 12px 0 #b2eaff66;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+      border: 3px solid #1cb0f6;
+    }
+    .school-heading {
+      text-align: center;
+      font-size: 1.35em;
+      font-weight: 800;
+      color: #2052a2;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 12px #b2eaff3b;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    .form-container {
+      max-width: 370px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 28px;
+      margin-top: 18px;
+    }
+    .form-header h2 {
+      font-size: 1.24em;
+      color: #2052a2;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      margin: 0 0 8px 0;
+    }
+    .form-header p {
+      font-size: 1em;
+      color: #5170b7;
+      margin: 0;
+    }
+    .login-form label {
+      font-weight: 600;
+      color: #18416d;
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: 0.4px;
+      font-size: 1em;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="tel"],
+    .login-form input[type="number"] {
+      width: 100%;
+      padding: 11px 12px;
+      margin-bottom: 19px;
+      border: 2px solid #c8ddfa;
+      border-radius: 8px;
+      background: #f4f8fe;
+      font-size: 1em;
+      transition: border 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      color: #23427a;
+    }
+    .login-form input[type="text"]:focus,
+    .login-form input[type="password"]:focus,
+    .login-form input[type="tel"]:focus,
+    .login-form input[type="number"]:focus {
+      border-color: #1cb0f6;
+      box-shadow: 0 0 0 2px #b2eaff66;
+      background: #fff;
+    }
+    .login-form button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(90deg, #1cb0f6 70%, #2052a2 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 0;
+      font-size: 1.13em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 2px 15px 0 #1cb0f622;
+      transition: background 0.18s, transform 0.11s;
+    }
+    .login-form button[type="submit"]:hover {
+      background: linear-gradient(90deg, #2052a2 60%, #1cb0f6 100%);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .form-icon {
+      font-size: 2em;
+      color: #1cb0f6;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 12px #b2eaff55);
+    }
+    .forgot-link,
+    .reset-link {
+      display: block;
+      text-align: right;
+      color: #1cb0f6;
+      font-size: 0.99em;
+      font-weight: 600;
+      margin-top: -13px;
+      margin-bottom: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.12s;
+    }
+    .forgot-link:hover,
+    .reset-link:hover {
+      color: #2052a2;
+      text-decoration: underline;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 18px;
+      color: #3a5c96;
+      font-size: 1em;
+    }
+    .login-link a {
+      color: #1cb0f6;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 6px;
+      transition: color 0.13s;
+    }
+    .login-link a:hover {
+      color: #2052a2;
+      text-decoration: underline;
+    }
+    .error-message {
+      color: #cc2929;
+      font-size: 1em;
+      margin: -6px 0 18px 0;
+      min-height: 22px;
+      text-align: center;
+      font-weight: 600;
+    }
+    /* Reset Password Modal */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(36,48,77,0.19);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px 25px 18px 25px;
+      border-radius: 18px;
+      box-shadow: 0 6px 30px 0 #1cb0f633;
+      min-width: 310px;
+      max-width: 95vw;
+      position: relative;
+    }
+    .modal-content h3 {
+      color: #2052a2;
+      margin: 0 0 18px 0;
+      font-size: 1.13em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .modal-content label {
+      color: #18416d;
+      font-weight: 600;
+      font-size: 1em;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px; right: 12px;
+      background: none;
+      border: none;
+      font-size: 1.35em;
+      color: #1cb0f6;
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+    .close-modal:hover {
+      color: #e21e3e;
+    }
+    .modal-content .verify-info {
+      font-size: 0.98em;
+      color: #42558e;
+      margin-bottom: 9px;
+    }
+    @media (max-width: 600px) {
+      .form-outer-container {
+        padding: 0 0 14px 0;
+      }
+      .form-container {
+        padding: 0 2vw;
+      }
+      .school-logo-container {
+        padding-top: 16px;
+      }
+      .school-logo {
+        width: 52px;
+        height: 52px;
+      }
+      .school-heading {
+        font-size: 1em;
+      }
+      .form-header h2 { font-size: 1em; }
+      .modal-content { padding: 16px 6vw 10px 6vw;}
+    }
+  </style>
+</head>
+<body>
+  <div class="form-outer-container">
+    <div class="school-logo-container">
+      <!-- Badilisha src ya img hapa kama una logo ya shule -->
+      <img class="school-logo" src="logo.jpg" alt="Kalangalala Secondary School Logo">
+      <div class="school-heading">KALANGALALA SECONDARY SCHOOL</div>
+    </div>
+    <div class="form-container">
+      <div class="form-header">
+        <div class="form-icon">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <h2>TEACHERS LOGIN FORM</h2>
+        <p>Ingiza Teachers Service Commission Number na password uliyotumia kuregister.</p>
+      </div>
+      <form class="login-form" autocomplete="off" onsubmit="return handleLogin(event)">
+        <label for="tscnumber">Teachers Service Commission Number</label>
+        <input type="text" id="tscnumber" name="tscnumber" placeholder="Ingiza TSC Number yako" required pattern="^[A-Za-z0-9\-\/]+$" maxlength="30" autocomplete="username">
+        
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Andika Password" required minlength="8" autocomplete="current-password">
+          <button type="button" class="toggle-password" onclick="togglePassword()">
+            <i id="eye-icon" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <button type="submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+        <a id="reset-link" class="reset-link" style="display:none;" onclick="showModal()">Umesahau password? Reset hapa</a>
+      </form>
+      <div class="login-link">
+        Hauna akaunti?
+        <a href="Tlogin.html"><i class="fa-solid fa-user-plus"></i> Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Reset Modal -->
+  <div id="reset-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h3>Reset Password</h3>
+      <form id="reset-form" autocomplete="off" onsubmit="return handleReset(event)">
+        <label for="phone">Namba ya Simu</label>
+        <input type="tel" id="phone" name="phone" placeholder="Ingiza namba yako ya simu" required pattern="^0\d{9}$" maxlength="10">
+        <div class="verify-info">Baada ya kubofya "Tuma Code", utapokea verification code kwenye simu.</div>
+        <button type="submit" style="margin-bottom:13px;">
+          <i class="fa-solid fa-paper-plane"></i> Tuma Code
+        </button>
+        <div id="code-section" style="display:none;">
+          <label for="verification">Verification Code</label>
+          <input type="number" id="verification" name="verification" placeholder="Ingiza verification code" required>
+          <button type="button" onclick="handleVerify()" style="margin-top:7px;">
+            <i class="fa-solid fa-check"></i> Thibitisha
+          </button>
+        </div>
+        <div id="reset-success" style="color:#218838;font-size:1.01em;margin-top:11px;"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Password eye
+    function togglePassword() {
+      const passInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passInput.type = "password";
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Simulate password check (for demo, real app uses backend)
+    let failed = false;
+    function handleLogin(e) {
+      e.preventDefault();
+      const tsc = document.getElementById('tscnumber').value.trim();
+      const pass = document.getElementById('password').value;
+      const errMsg = document.getElementById('error-message');
+      // Simulate: if password is not "Teacher@123" or tsc empty, fail.
+      if (pass !== "Teacher@123") {
+        errMsg.textContent = "TSC Number au Password sio sahihi!";
+        document.getElementById('reset-link').style.display = "block";
+        failed = true;
+        return false;
+      } else {
+        errMsg.textContent = "";
+        document.getElementById('reset-link').style.display = "none";
+        // Redirect or submit
+        alert('Login successful!');
+        // window.location.href = "dashboard.html";
+        return true;
+      }
+    }
+
+    // RESET PASSWORD MODAL LOGIC
+    function showModal() {
+      document.getElementById('reset-modal').style.display = "flex";
+      document.getElementById('reset-form').reset();
+      document.getElementById('code-section').style.display = 'none';
+      document.getElementById('reset-success').textContent = "";
+    }
+    function closeModal() {
+      document.getElementById('reset-modal').style.display = "none";
+    }
+
+    // Handle reset form: show code section on submit
+    function handleReset(e) {
+      e.preventDefault();
+      document.getElementById('code-section').style.display = 'block';
+      document.getElementById('reset-success').textContent = "Verification code imetumwa kwenye namba ya simu uliyoingiza.";
+      return false;
+    }
+
+    // Handle code verification (simulate)
+    function handleVerify() {
+      const code = document.getElementById('verification').value;
+      if (code === "123456") {
+        document.getElementById('reset-success').textContent = "Umefanikiwa! Tafadhali wasiliana na admin kwa password mpya.";
+        setTimeout(closeModal, 3200);
+      } else {
+        document.getElementById('reset-success').textContent = "Verification code sio sahihi. Tafadhali jaribu tena.";
+      }
+    }
+  </script>
+</body>
+</html>

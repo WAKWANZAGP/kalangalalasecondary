@@ -1,0 +1,112 @@
+.school-headerbox {
+  width: 100%;
+  background: linear-gradient(135deg, #0f0f0f 85%, #0c0c0c 100%);
+  color: #e5edff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 0.6rem 2.5vw 0.6rem 2vw;
+  box-shadow: 0 2px 20px 0 rgba(25,35,77,0.11), 0 1.5px 8px 0 rgba(20,30,60,0.18);
+  position: relative;
+  z-index: 101;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.23rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  user-select: none;
+}
+
+.school-logo-anim {
+  width: 96px;   /* 1 inch = 96px (CSS standard) */
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080808;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px 0 rgba(41,70,140,0.19);
+  position: relative;
+}
+
+.logo-img {
+  width: 72px;   /* Slightly smaller than box, for padding */
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  animation: logo-rotate 2.8s cubic-bezier(0.45,1.7,0.4,0.7) infinite;
+  transition: filter 0.3s;
+}
+
+@keyframes logo-rotate {
+  0% {
+    transform: perspective(400px) rotateY(0deg) rotateZ(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: perspective(400px) rotateY(180deg) rotateZ(180deg);
+    filter: brightness(1.1) drop-shadow(0 0 6px #ffdb70a0);
+  }
+  100% {
+    transform: perspective(400px) rotateY(360deg) rotateZ(360deg);
+    filter: brightness(1);
+  }
+}
+
+/* Glow Animation */
+.logo-glow {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #02d649 40%, #fff0 100%);
+  opacity: 0.8;
+  box-shadow: 0 0 14px 4px #ffdb7089;
+  animation: logo-glow-anim 1.7s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow-anim {
+  0% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px 2px #ffdb7055, 0 0 0px 0px #fff0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 26px 7px #ffdb70c7, 0 0 12px 4px #ffeeb068;
+    transform: scale(1.15);
+  }
+}
+
+.school-title {
+  text-align: center;
+  flex: 0 1 auto;
+  white-space: pre-line;
+  text-shadow: 0 2px 14px #15244d55;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .school-headerbox {
+    font-size: 1rem;
+    gap: 11px;
+    padding: 0.4rem 1vw 0.4rem 1vw;
+  }
+  .school-logo-anim {
+    width: 56px;
+    height: 56px;
+  }
+  .logo-img {
+    width: 38px;
+    height: 38px;
+  }
+  .logo-glow {
+    width: 9px;
+    height: 9px;
+    right: 4px;
+    bottom: 4px;
+  }
+}

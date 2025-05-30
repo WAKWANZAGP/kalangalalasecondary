@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Matokeo ya Shule - NECTA, Mock, Zonal, Terminal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f8fcff 0%, #e1eaf6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a2748;
+    }
+    .results-container {
+      max-width: 1200px;
+      margin: 44px auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 7px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 50px 4vw 50px 4vw;
+      transition: box-shadow 0.3s;
+    }
+    .results-container:hover {
+      box-shadow: 0 15px 60px 0 rgba(31,49,116,0.17), 0 7px 24px 0 rgba(31,41,60,0.14);
+    }
+    .results-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .results-header h1 {
+      font-size: 2.4em;
+      margin: 0;
+      color: #1c3879;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px #c1cbea2a;
+    }
+    .results-header p {
+      font-size: 1.13em;
+      color: #56659b;
+      margin: 14px 0 0 0;
+      line-height: 1.45;
+    }
+    .vidato-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 42px;
+      margin-top: 38px;
+      margin-bottom: 10px;
+    }
+    .vidato-card {
+      background: linear-gradient(108deg, #e6f0fd 85%, #f7f9ff 100%);
+      border-radius: 18px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.08);
+      padding: 30px 26px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      transition: box-shadow 0.22s, transform 0.13s;
+    }
+    .vidato-card:hover {
+      box-shadow: 0 7px 25px 0 #1cb0f695, 0 2px 12px 0 rgba(41,70,140,0.15);
+      transform: translateY(-3px) scale(1.012);
+    }
+    .vidato-title {
+      font-size: 1.25em;
+      font-weight: 700;
+      color: #1c3879;
+      letter-spacing: 1.1px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .vidato-title i {
+      font-size: 1.25em;
+      color: #2196f3;
+      filter: drop-shadow(0 2px 7px #b2eaffc8);
+    }
+    .years-section {
+      width: 100%;
+      margin-top: 8px;
+    }
+    .year-group {
+      background: #f5f9ff;
+      border-radius: 11px;
+      margin-bottom: 21px;
+      padding: 13px 14px 14px 14px;
+      box-shadow: 0 1.5px 8px 0 #e1eaf62a;
+    }
+    .year-title {
+      font-size: 1.02em;
+      font-weight: 600;
+      color: #3973b8;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .year-title i {
+      color: #1cb0f6;
+    }
+    .results-table {
+      width: 100%;
+      margin-top: 3px;
+      border-collapse: collapse;
+      background: #f8fcff;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.99em;
+      box-shadow: 0 1px 8px 0 #b2eaff10;
+      margin-bottom: 4px;
+    }
+    .results-table th,
+    .results-table td {
+      padding: 9px 8px;
+      text-align: center;
+      border-bottom: 1px solid #e5eefd;
+    }
+    .results-table th {
+      background: #eaf5ff;
+      color: #1c3879;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+    .results-table tr:last-child td {
+      border-bottom: none;
+    }
+    .badge-type {
+      display: inline-block;
+      font-size: 0.92em;
+      padding: 3px 10px;
+      border-radius: 11px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 2px;
+      letter-spacing: 0.5px;
+    }
+    .necta { background: #43c6ac;}
+    .mock { background: #2196f3;}
+    .zonal { background: #f7b731;}
+    .terminal { background: #8e54e9;}
+    .badge-year {
+      display: inline-block;
+      color: #1cb0f6;
+      background: #eaf5ff;
+      border-radius: 7px;
+      padding: 2px 9px;
+      font-size: .97em;
+      margin-right: 6px;
+      font-weight: 600;
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      .results-container {
+        padding: 14px 2vw 17px 2vw;
+      }
+      .vidato-title { font-size: 1.1em; }
+      .vidato-card { padding: 17px 8px 11px 9px;}
+      .results-header h1 { font-size: 1.18em;}
+      .vidato-grid { gap: 17px; }
+      .year-title { font-size: 0.98em;}
+    }
+  </style>
+</head>
+<body>
+  <div class="results-container">
+    <div class="results-header">
+      <h1>
+        <i class="fa-solid fa-chart-line" style="color:#2196f3; margin-right:10px;"></i>
+        KALANGALALA SECONDARY SCHOOL RESULTS
+      </h1>
+      <p>
+        Hapa utaona matokeo ya mitihani mbalimbali kuanzia kidato cha kwanza hadi cha sita, kwa kila mwaka kuanzia 2009 hadi sasa. Zimejumuishwa NECTA, Mock, Zonal na Terminal Examinations kwenye mpangilio wa kitaalamu na kisasa.
+      </p>
+    </div>
+    <div class="vidato-grid">
+
+      <!-- Vidato I-VI -->
+      <!-- Kila kidato kina miaka (sample 2023, 2022, 2021, 2020, 2009) na aina zote za matokeo -->
+      <!-- Unapoongeza/data, copy-paste group na ongeza mwaka/mpangilio -->
+
+      <!-- Kidato cha Kwanza -->
+      <div class="vidato-card">
+        <div class="vidato-title"><i class="fa-solid fa-1"></i> Kidato cha Kwanza</div>
+        <div class="years-section">
+          <!-- Repeat and adjust for every year as needed -->
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2024</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type terminal">Terminal</span></td>
+                <td>71%</td>
+                <td>A</td>
+                <td>C</td>
+                <td>110</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type zonal">Zonal</span></td>
+                <td>68%</td>
+                <td>B+</td>
+                <td>D</td>
+                <td>108</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2023</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type terminal">Terminal</span></td>
+                <td>69%</td>
+                <td>B+</td>
+                <td>D</td>
+                <td>106</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+          <!-- Ongeza miaka zaidi kama 2022, 2021, 2020, 2009... -->
+        </div>
+      </div>
+
+      <!-- Kidato cha Pili -->
+      <div class="vidato-card">
+        <div class="vidato-title"><i class="fa-solid fa-2"></i> Kidato cha Pili</div>
+        <div class="years-section">
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2024</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type necta">NECTA</span></td>
+                <td>76%</td>
+                <td>A</td>
+                <td>C</td>
+                <td>120</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type mock">Mock</span></td>
+                <td>72%</td>
+                <td>B+</td>
+                <td>C</td>
+                <td>119</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2023</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type mock">Mock</span></td>
+                <td>69%</td>
+                <td>B</td>
+                <td>D</td>
+                <td>115</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type necta">NECTA</span></td>
+                <td>78%</td>
+                <td>A</td>
+                <td>C</td>
+                <td>117</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kidato cha Tatu -->
+      <div class="vidato-card">
+        <div class="vidato-title"><i class="fa-solid fa-3"></i> Kidato cha Tatu</div>
+        <div class="years-section">
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2024</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type terminal">Terminal</span></td>
+                <td>67%</td>
+                <td>B</td>
+                <td>D</td>
+                <td>99</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type zonal">Zonal</span></td>
+                <td>65%</td>
+                <td>B</td>
+                <td>E</td>
+                <td>97</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kidato cha Nne -->
+      <div class="vidato-card">
+        <div class="vidato-title"><i class="fa-solid fa-4"></i> Kidato cha Nne</div>
+        <div class="years-section">
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2024</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type necta">NECTA</span></td>
+                <td>84%</td>
+                <td>A</td>
+                <td>B</td>
+                <td>95</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type mock">Mock</span></td>
+                <td>79%</td>
+                <td>B+</td>
+                <td>C</td>
+                <td>93</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type zonal">Zonal</span></td>
+                <td>75%</td>
+                <td>B</td>
+                <td>C</td>
+                <td>94</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kidato cha Tano -->
+      <div class="vidato-card">
+        <div class="vidato-title"><i class="fa-solid fa-5"></i> Kidato cha Tano</div>
+        <div class="years-section">
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2024</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type terminal">Terminal</span></td>
+                <td>71%</td>
+                <td>A</td>
+                <td>C</td>
+                <td>60</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kidato cha Sita -->
+      <div class="vidato-card">
+        <div class="vidato-title"><i class="fa-solid fa-6"></i> Kidato cha Sita</div>
+        <div class="years-section">
+          <div class="year-group">
+            <div class="year-title"><i class="fa-solid fa-calendar"></i> 2024</div>
+            <table class="results-table">
+              <tr>
+                <th>Aina ya Mtihani</th>
+                <th>Wastani wa Alama</th>
+                <th>Daraja Bora</th>
+                <th>Daraja Duni</th>
+                <th>Idadi ya Wanafunzi</th>
+                <th>Kiungo cha Matokeo</th>
+              </tr>
+              <tr>
+                <td><span class="badge-type necta">NECTA</span></td>
+                <td>90%</td>
+                <td>A</td>
+                <td>B+</td>
+                <td>49</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+              <tr>
+                <td><span class="badge-type mock">Mock</span></td>
+                <td>86%</td>
+                <td>A</td>
+                <td>B</td>
+                <td>51</td>
+                <td><a href="#">Angalia</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Unaweza kuongeza miaka zaidi (2023, 2022, ... 2009) kwa kuiga structure hii na kuongeza rows kwenye kila kidato na mwaka -->
+    </div>
+  </div>
+</body>
+</html>

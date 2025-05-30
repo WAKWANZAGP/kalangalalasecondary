@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Somo la Michezo kwa Shule za Sekondari</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f7fbff 0%, #e1eaf6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #17305a;
+    }
+    .sports-container {
+      max-width: 1100px;
+      margin: 44px auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 8px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 50px 5vw 52px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .sports-container:hover {
+      box-shadow: 0 16px 56px 0 rgba(31,49,116,0.19), 0 7px 25px 0 rgba(31,41,60,0.17);
+    }
+    .sports-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .sports-header h1 {
+      font-size: 2.3em;
+      margin: 0;
+      color: #1c3879;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px #c1cbea2a;
+    }
+    .sports-header p {
+      font-size: 1.15em;
+      color: #5163a5;
+      margin: 14px 0 0 0;
+      line-height: 1.45;
+    }
+    .sports-section-title {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #1cb0f6;
+      letter-spacing: 1.2px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-shadow: 0 2px 16px #d6f0fc4c;
+    }
+    .sports-section-title i {
+      color: #2196f3;
+      font-size: 1.1em;
+      margin-bottom: 2px;
+    }
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 34px;
+      margin-bottom: 32px;
+    }
+    .sports-card {
+      background: linear-gradient(108deg, #e6f0fd 90%, #f7f9ff 100%);
+      border-radius: 19px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.08);
+      padding: 25px 24px 21px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      transition: box-shadow 0.22s, transform 0.13s;
+    }
+    .sports-card:hover {
+      box-shadow: 0 7px 24px 0 #1cb0f672, 0 2px 12px 0 rgba(41,70,140,0.11);
+      transform: translateY(-4px) scale(1.015);
+    }
+    .sports-title {
+      font-size: 1.13em;
+      font-weight: 700;
+      color: #1c3879;
+      margin-bottom: 10px;
+      letter-spacing: 1.1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sports-title i {
+      color: #1cb0f6;
+      font-size: 1.17em;
+    }
+    .sports-desc {
+      font-size: 1em;
+      color: #42558e;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+    .sports-badge {
+      position: absolute;
+      top: 20px;
+      right: 18px;
+      background: #1cb0f6;
+      color: #fff;
+      font-size: 0.97em;
+      padding: 4px 13px 3px 13px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #b2eaff88;
+      letter-spacing: .5px;
+      animation: badge-glow 2.1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #b2eaff88;}
+      100% { box-shadow: 0 2px 25px 0 #1cb0f6cc;}
+    }
+    @media (max-width: 800px) {
+      .sports-container {
+        padding: 14px 2vw 17px 2vw;
+      }
+      .sports-section-title { font-size: 1.08em; }
+      .sports-card { padding: 14px 9px 10px 14px;}
+      .sports-header h1 { font-size: 1.15em;}
+      .sports-grid { gap: 13px; }
+      .sports-title { font-size: 1em;}
+    }
+  </style>
+</head>
+<body>
+  <div class="sports-container">
+    <div class="sports-header">
+      <h1>
+        <i class="fa-solid fa-futbol" style="color:#2196f3; margin-right:10px;"></i>
+        Somo la Michezo kwa Shule ya Sekondari Kalangalala
+      </h1>
+      <p>
+        Somo la michezo ni sehemu muhimu katika maendeleo ya mwanafunzi wa sekondari. Linasaidia katika kujenga afya, nidhamu, kazi za timu, na kuibua vipaji. Shule za sekondari zinapaswa kutoa nafasi kwa kila aina ya mchezo, na kuhakikisha wanafunzi wote wanashiriki kikamilifu.
+      </p>
+    </div>
+
+    <div class="sports-section-title"><i class="fa-solid fa-gamepad"></i>Aina za Michezo Shuleni</div>
+    <div class="sports-grid">
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-futbol"></i>Mpira wa Miguu (Football)</span>
+        <span class="sports-desc">
+          Mchezo unaopendwa zaidi, unafundisha ushirikiano, mbinu, na stamina. Unashirikisha timu za wavulana na wasichana, na mashindano ya ndani na nje ya shule.
+        </span>
+        <span class="sports-badge">Team Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-basketball"></i>Mpira wa Kikapu (Basketball)</span>
+        <span class="sports-desc">
+          Hufundisha urefu wa kuruka, mbinu za pasi, na ushirikiano. Shule nyingi hufanya ligi za mpira wa kikapu kwa wanafunzi wote.
+        </span>
+        <span class="sports-badge">Team Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-volleyball-ball"></i>Mpira wa Wavu (Volleyball)</span>
+        <span class="sports-desc">
+          Hufundisha umakini, kasi, na ushirikiano wa kikundi. Ni mchezo unaozidi kupendwa na wanafunzi wa sekondari.
+        </span>
+        <span class="sports-badge">Team Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-table-tennis-paddle-ball"></i>Meza (Table Tennis & Badminton)</span>
+        <span class="sports-desc">
+          Michezo ya mezani kama Table Tennis na Badminton husaidia akili, mikakati na mzunguko wa haraka wa mwili.
+        </span>
+        <span class="sports-badge">Racket Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-running"></i>Mashindano ya Mbio (Athletics)</span>
+        <span class="sports-desc">
+          Inajumuisha mbio fupi (sprints), mbio ndefu, kuruka juu, kurusha mkuki na uzani. Husaidia afya na ushindani binafsi.
+        </span>
+        <span class="sports-badge">Athletics</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-baseball"></i>Baseball & Softball</span>
+        <span class="sports-desc">
+          Inafundisha uratibu wa mwili, umakini na mbinu mbalimbali za mchezo wa timu.
+        </span>
+        <span class="sports-badge">Team Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-chess"></i>Michezo ya Akili (Chess, Scrabble)</span>
+        <span class="sports-desc">
+          Michezo hii inaimarisha uwezo wa kufikiri, kupanga mikakati, na kufanya maamuzi kwa haraka.
+        </span>
+        <span class="sports-badge">Mind Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-swimmer"></i>Kuogelea (Swimming)</span>
+        <span class="sports-desc">
+          Mchezo unaosaidia mwili mzima, kujenga stamina, na ni muhimu kwa usalama wa mwanafunzi.
+        </span>
+        <span class="sports-badge">Individual</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-bowling-ball"></i>Netball</span>
+        <span class="sports-desc">
+          Ni maarufu kwa wasichana, inafundisha mbinu za pasi, kasi na ushirikiano wa timu.
+        </span>
+        <span class="sports-badge">Team Sport</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-dumbbell"></i>Gymnastics & Fitness</span>
+        <span class="sports-desc">
+          Mazoezi ya viungo, kuruka kamba, push-up, aerobic na fitness kwa ajili ya afya na umbo bora la mwili.
+        </span>
+        <span class="sports-badge">Health</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-hiking"></i>Hiking & Cross Country</span>
+        <span class="sports-desc">
+          Safari za matembezi marefu na mashindano ya cross country hujenga stamina na upendo kwa mazingira.
+        </span>
+        <span class="sports-badge">Outdoor</span>
+      </div>
+      <div class="sports-card">
+        <span class="sports-title"><i class="fa-solid fa-fist-raised"></i>Karate, Judo & Martial Arts</span>
+        <span class="sports-desc">
+          Hufundisha nidhamu, ujasiri, kujilinda na heshima. Inashirikisha wanafunzi wa jinsia zote.
+        </span>
+        <span class="sports-badge">Martial Arts</span>
+      </div>
+    </div>
+
+    <div class="sports-section-title"><i class="fa-solid fa-info-circle"></i>Umuhimu wa Somo la Michezo</div>
+    <div style="margin-bottom:30px;">
+      <ul style="font-size:1.07em; color:#42558e; line-height:1.7; margin:0 0 10px 22px;">
+        <li>Kujenga afya bora na upunguzaji wa magonjwa yasiyoambukiza</li>
+        <li>Kukuza vipaji na kutoa fursa ya kushiriki mashindano ya kitaifa na kimataifa</li>
+        <li>Kujenga nidhamu, ushirikiano na uongozi kwa vijana</li>
+        <li>Kupunguza msongo wa mawazo na kuongeza furaha shuleni</li>
+        <li>Kuboresha mahusiano kati ya wanafunzi, walimu na jamii</li>
+        <li>Kujifunza misingi ya ushindani wa haki na kuheshimu wengine</li>
+      </ul>
+    </div>
+    <div class="sports-section-title"><i class="fa-solid fa-chalkboard-teacher"></i>Hitimisho</div>
+    <div style="font-size:1.03em; color:#42558e; line-height:1.7;">
+      Somo la michezo ni muhimu kwa ujazo wa elimu bora. Shule zitoe vifaa vya michezo, walimu mahiri na ratiba rasmi ili kila mwanafunzi apate fursa ya kushiriki na kunufaika na somo hili.
+    </div>
+  </div>
+</body>
+</html>

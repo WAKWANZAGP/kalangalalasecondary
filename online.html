@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Online Learning - Sekondari (O-Level & A-Level)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(118deg, #f8fcff 0%, #e1eaf6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #162243;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 44px auto 44px auto;
+      background: #fff;
+      border-radius: 27px;
+      box-shadow: 0 7px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 48px 5vw 48px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .container:hover {
+      box-shadow: 0 13px 55px 0 rgba(31,49,116,0.19), 0 6px 22px 0 rgba(31,41,60,0.13);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .header h1 {
+      font-size: 2.25em;
+      margin: 0;
+      color: #1c3879;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px #c1cbea2a;
+    }
+    .header p {
+      font-size: 1.16em;
+      color: #56659b;
+      margin: 16px 0 0 0;
+      line-height: 1.45;
+    }
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 34px;
+      margin-top: 36px;
+      margin-bottom: 52px;
+    }
+    .learning-card {
+      background: linear-gradient(108deg, #e6f0fd 85%, #f7f9ff 100%);
+      border-radius: 18px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.095);
+      padding: 28px 25px 22px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.13s;
+      position: relative;
+    }
+    .learning-card:hover {
+      box-shadow: 0 7px 25px 0 #1cb0f695, 0 2px 12px 0 rgba(41,70,140,0.16);
+      transform: translateY(-4px) scale(1.018);
+    }
+    .learning-card .learning-icon {
+      font-size: 2.2em;
+      color: #4576b8;
+      margin-bottom: 13px;
+      transition: color 0.22s;
+      filter: drop-shadow(0 3px 8px #dbe8fa);
+    }
+    .learning-card:hover .learning-icon {
+      color: #1cb0f6;
+      filter: drop-shadow(0 4px 18px #b2eaff);
+    }
+    .learning-title {
+      font-size: 1.15em;
+      font-weight: 700;
+      color: #1c3879;
+      margin-bottom: 8px;
+      letter-spacing: 1.1px;
+    }
+    .learning-desc {
+      font-size: 1em;
+      color: #4d587e;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+    .learning-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #1cb0f6;
+      color: #fff;
+      font-size: 0.95em;
+      padding: 3px 14px 3px 13px;
+      border-radius: 14px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #b2eaff88;
+      letter-spacing: .5px;
+      animation: badge-glow 2.1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #b2eaff88;}
+      100% { box-shadow: 0 2px 25px 0 #1cb0f6cc;}
+    }
+    @media (max-width: 700px) {
+      .container {
+        padding: 13px 1vw 17px 1vw;
+      }
+      .header h1 {
+        font-size: 1.1em;
+      }
+      .learning-card {
+        padding: 14px 7px 13px 12px;
+      }
+      .learning-grid {
+        gap: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>
+        <i class="fa-solid fa-laptop" style="color:#1cb0f6; margin-right:10px;"></i>
+        Online Learning kwa Sekondari (O-Level hadi A-Level)
+      </h1>
+      <p>
+        Shule yetu inatoa fursa za kujifunza mtandaoni (online learning) kwa wanafunzi wa kidato cha kwanza hadi cha sita. 
+        Hii inahusisha matumizi ya majukwaa ya digitali, masomo ya video, mitihani ya mtandaoni, na ushirikiano wa walimu na wanafunzi kupitia teknolojia. 
+        Masomo yote ya O-Level na A-Level yanapaswa kufikiwa na wanafunzi kupitia mifumo hii ya kisasa.
+      </p>
+    </div>
+    <div class="learning-grid">
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+        <span class="learning-title">Majukwaa ya Masomo Mtandaoni</span>
+        <span class="learning-desc">
+          Matumizi ya majukwaa kama Google Classroom, Moodle, au Microsoft Teams kuwezesha ufundishaji, usambazaji wa notes, na mawasiliano kati ya walimu na wanafunzi.
+        </span>
+        <span class="learning-badge">Platform</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-video"></i></span>
+        <span class="learning-title">Masomo ya Video na Live Classes</span>
+        <span class="learning-desc">
+          Utoaji wa masomo kupitia video zilizorekodiwa au vipindi vya moja kwa moja (live), kwa O-Level na A-Level. Hii huruhusu wanafunzi kujifunza muda wowote na mahali popote.
+        </span>
+        <span class="learning-badge">Video</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-book-open"></i></span>
+        <span class="learning-title">Mitihani na Quiz za Mtandaoni</span>
+        <span class="learning-desc">
+          Kuwapa wanafunzi mitihani, worksheets na quiz kupitia mifumo ya mtandaoni. Matokeo hupatikana haraka na inasaidia ufuatiliaji wa maendeleo.
+        </span>
+        <span class="learning-badge">Assessments</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-users"></i></span>
+        <span class="learning-title">Majadiliano na Ushirikiano wa Kijamii</span>
+        <span class="learning-desc">
+          Kuanzisha forums, chat groups au discussion boards kwa ajili ya mijadala ya masomo na kusaidiana baina ya wanafunzi.
+        </span>
+        <span class="learning-badge">Interaction</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span class="learning-title">Masomo ya O-Level na A-Level</span>
+        <span class="learning-desc">
+          Masomo yote muhimu kama Mathematics, Physics, Chemistry, Biology, Geography, History, Kiswahili, English, Economics, na zaidi yanapaswa kufikiwa mtandaoni na kwa mtaala wa Tanzania.
+        </span>
+        <span class="learning-badge">Subjects</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-mobile-alt"></i></span>
+        <span class="learning-title">Upatikanaji Kupitia Simu na Kompyuta</span>
+        <span class="learning-desc">
+          Mfumo wa kujifunza mtandaoni uwe rahisi kupatikana kwenye vifaa vyote – simu, tablets, na kompyuta.
+        </span>
+        <span class="learning-badge">Access</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-cloud-download-alt"></i></span>
+        <span class="learning-title">Upakuaji wa Nyenzo za Kujifunza</span>
+        <span class="learning-desc">
+          Wanafunzi waweze kupakua materials kama PDF, slides, na past papers kwa ajili ya kujisomea nje ya mtandao (offline).
+        </span>
+        <span class="learning-badge">Resources</span>
+      </div>
+      <div class="learning-card">
+        <span class="learning-icon"><i class="fas fa-headset"></i></span>
+        <span class="learning-title">Msaada wa Walimu Mtandaoni</span>
+        <span class="learning-desc">
+          Uwepo wa walimu wanaoweza kujibu maswali au kufundisha kwa njia ya mtandao kupitia chat au video calls.
+        </span>
+        <span class="learning-badge">Support</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

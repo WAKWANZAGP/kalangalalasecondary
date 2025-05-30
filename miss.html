@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Missions za Shule</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f3f8ff 0%, #e0e7f5 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a2748;
+    }
+    .missions-container {
+      max-width: 900px;
+      margin: 40px auto 36px auto;
+      background: #fff;
+      border-radius: 23px;
+      box-shadow: 0 6px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 38px 5vw 38px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .missions-container:hover {
+      box-shadow: 0 12px 48px 0 rgba(31,49,116,0.16), 0 5px 18px 0 rgba(31,41,60,0.09);
+    }
+    .missions-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .missions-header h1 {
+      font-size: 2.3em;
+      margin: 0;
+      color: #23376b;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 14px #c1cbea40;
+    }
+    .missions-header p {
+      font-size: 1.12em;
+      color: #5e6e99;
+      margin: 14px 0 0 0;
+      line-height: 1.45;
+    }
+
+    .mission-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 28px;
+      margin-top: 35px;
+    }
+
+    .mission-card {
+      background: linear-gradient(110deg, #e8f0fe 90%, #f7f9ff 100%);
+      border-radius: 17px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.10);
+      padding: 26px 22px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.13s;
+      position: relative;
+    }
+    .mission-card:hover {
+      box-shadow: 0 6px 24px 0 #69b3f790, 0 1.5px 12px 0 rgba(41,70,140,0.17);
+      transform: translateY(-4px) scale(1.018);
+    }
+    .mission-card .mission-icon {
+      font-size: 2.2em;
+      color: #387ee9;
+      margin-bottom: 13px;
+      transition: color 0.2s;
+      filter: drop-shadow(0 3px 8px #dbe8fa);
+    }
+    .mission-card:hover .mission-icon {
+      color: #3ec1d3;
+      filter: drop-shadow(0 4px 18px #bbf6ff);
+    }
+    .mission-title {
+      font-size: 1.17em;
+      font-weight: 700;
+      color: #22325c;
+      margin-bottom: 7px;
+      letter-spacing: 1.1px;
+    }
+    .mission-desc {
+      font-size: 1em;
+      color: #45507a;
+      margin-bottom: 0;
+      line-height: 1.66;
+    }
+    .mission-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #3ec1d3;
+      color: #fff;
+      font-size: 0.96em;
+      padding: 3px 14px 3px 13px;
+      border-radius: 13px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #bbf6ff80;
+      letter-spacing: .5px;
+      animation: badge-glow 2s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #bbf6ff80;}
+      100% { box-shadow: 0 2px 22px 0 #3ec1d3bb;}
+    }
+
+    @media (max-width: 600px) {
+      .missions-container {
+        padding: 16px 2vw 18px 2vw;
+      }
+      .missions-header h1 {
+        font-size: 1.35em;
+      }
+      .mission-card {
+        padding: 17px 8px 17px 13px;
+      }
+      .mission-list {
+        gap: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="missions-container">
+    <div class="missions-header">
+      <h1>
+        <i class="fa-solid fa-bullseye" style="color:#3ec1d3; margin-right:10px;"></i>
+        Missions Muhimu za Shule
+      </h1>
+      <p>
+        Hizi ni missions muhimu ambazo shule inapaswa kuwa nazo au kutoa ili kufanikisha malengo ya elimu bora na maendeleo ya jamii.
+      </p>
+    </div>
+    <div class="mission-list">
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-book-reader"></i></span>
+        <span class="mission-title">Kutoa Elimu Bora</span>
+        <span class="mission-desc">
+          Kusimamia utoaji wa elimu iliyo bora, inayokidhi viwango vya kitaifa na kimataifa, na kumwezesha mwanafunzi kupata ujuzi na maarifa stahiki.
+        </span>
+        <span class="mission-badge">Elimu</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-users"></i></span>
+        <span class="mission-title">Kukuza Maadili na Nidhamu</span>
+        <span class="mission-desc">
+          Kulea wanafunzi katika misingi ya maadili, uadilifu, heshima na uwajibikaji kwa jamii na taifa.
+        </span>
+        <span class="mission-badge">Maadili</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-lightbulb"></i></span>
+        <span class="mission-title">Kuchochea Ubunifu na Uvumbuzi</span>
+        <span class="mission-desc">
+          Kukuza na kuendeleza vipaji, ubunifu, na uwezo wa kutatua changamoto kwa njia mpya na bunifu.
+        </span>
+        <span class="mission-badge">Ubunifu</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-hand-holding-heart"></i></span>
+        <span class="mission-title">Kulea Utu na Mshikamano</span>
+        <span class="mission-desc">
+          Kukuza upendo, mshikamano na ushirikiano miongoni mwa wanafunzi, walimu na jamii kwa ujumla.
+        </span>
+        <span class="mission-badge">Jamii</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-globe-africa"></i></span>
+        <span class="mission-title">Kukuza Uraia na Uzalendo</span>
+        <span class="mission-desc">
+          Kukuza moyo wa uzalendo, utii kwa sheria za nchi na uwajibikaji kama raia bora wa Tanzania na dunia.
+        </span>
+        <span class="mission-badge">Uraia</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-seedling"></i></span>
+        <span class="mission-title">Kuhimiza Utunzaji wa Mazingira</span>
+        <span class="mission-desc">
+          Kuelimisha na kuhamasisha wanafunzi kuhusu umuhimu wa kutunza mazingira na rasilimali za asili kwa maendeleo endelevu.
+        </span>
+        <span class="mission-badge">Mazingira</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-futbol"></i></span>
+        <span class="mission-title">Kukuza Vipaji vya Michezo na Sanaa</span>
+        <span class="mission-desc">
+          Kutoa fursa na mazingira ya kukuza vipaji vya michezo, sanaa na burudani ili kukuza afya na kipaji cha mwanafunzi.
+        </span>
+        <span class="mission-badge">Vipaji</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-laptop-code"></i></span>
+        <span class="mission-title">Kukuza Ujuzi wa Teknolojia</span>
+        <span class="mission-desc">
+          Kuhakikisha wanafunzi wanapata maarifa na ujuzi wa kisasa wa teknolojia ya habari na mawasiliano (TEHAMA).
+        </span>
+        <span class="mission-badge">Teknolojia</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-handshake"></i></span>
+        <span class="mission-title">Kushirikiana na Wadau wa Elimu</span>
+        <span class="mission-desc">
+          Kuimarisha ushirikiano kati ya shule, wazazi, serikali na wadau mbalimbali ili kuboresha mazingira ya elimu na mafanikio ya shule.
+        </span>
+        <span class="mission-badge">Wadau</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-medal"></i></span>
+        <span class="mission-title">Kuchochea Ushindani wa Kimataifa</span>
+        <span class="mission-desc">
+          Kuweka mazingira ya wanafunzi kuweza kushindana kimataifa katika taaluma, michezo na ubunifu.
+        </span>
+        <span class="mission-badge">Ufanisi</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

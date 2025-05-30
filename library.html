@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Maktaba & Rasilimali za Wanafunzi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f7fbff 0%, #e1eaf6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #17305a;
+    }
+    .lib-container {
+      max-width: 1240px;
+      margin: 44px auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 8px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 50px 4vw 52px 4vw;
+      transition: box-shadow 0.3s;
+    }
+    .lib-container:hover {
+      box-shadow: 0 16px 56px 0 rgba(31,49,116,0.19), 0 7px 25px 0 rgba(31,41,60,0.17);
+    }
+    .lib-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .lib-header h1 {
+      font-size: 2.4em;
+      margin: 0;
+      color: #1c3879;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px #c1cbea2a;
+    }
+    .lib-header p {
+      font-size: 1.15em;
+      color: #5163a5;
+      margin: 14px 0 0 0;
+      line-height: 1.45;
+    }
+    .resource-section {
+      margin-bottom: 42px;
+    }
+    .section-title {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: #1cb0f6;
+      letter-spacing: 1.2px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-shadow: 0 2px 16px #d6f0fc4c;
+    }
+    .section-title i {
+      color: #2196f3;
+      font-size: 1.1em;
+      margin-bottom: 2px;
+    }
+    .resource-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 34px;
+    }
+    .resource-card {
+      background: linear-gradient(108deg, #e6f0fd 90%, #f7f9ff 100%);
+      border-radius: 19px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.07);
+      padding: 25px 24px 21px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      transition: box-shadow 0.22s, transform 0.13s;
+    }
+    .resource-card:hover {
+      box-shadow: 0 7px 24px 0 #1cb0f672, 0 2px 12px 0 rgba(41,70,140,0.11);
+      transform: translateY(-4px) scale(1.015);
+    }
+    .resource-title {
+      font-size: 1.13em;
+      font-weight: 700;
+      color: #1c3879;
+      margin-bottom: 10px;
+      letter-spacing: 1.1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .resource-title i {
+      color: #1cb0f6;
+      font-size: 1.14em;
+    }
+    .resource-list {
+      margin: 0 0 7px 0;
+      padding: 0 0 0 17px;
+      color: #42558e;
+      font-size: 1em;
+      line-height: 1.7;
+    }
+    .badge-resource {
+      position: absolute;
+      top: 20px;
+      right: 18px;
+      background: #1cb0f6;
+      color: #fff;
+      font-size: 0.97em;
+      padding: 4px 13px 3px 13px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #b2eaff88;
+      letter-spacing: .5px;
+      animation: badge-glow 2.1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #b2eaff88;}
+      100% { box-shadow: 0 2px 25px 0 #1cb0f6cc;}
+    }
+    /* Syllabus section */
+    .syllabus-table {
+      width: 100%;
+      margin-top: 9px;
+      margin-bottom: 5px;
+      border-collapse: collapse;
+      background: #f8fcff;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.99em;
+      box-shadow: 0 1px 8px 0 #b2eaff10;
+    }
+    .syllabus-table th,
+    .syllabus-table td {
+      padding: 10px 7px;
+      text-align: center;
+      border-bottom: 1px solid #e5eefd;
+    }
+    .syllabus-table th {
+      background: #eaf5ff;
+      color: #1c3879;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+    .syllabus-table tr:last-child td {
+      border-bottom: none;
+    }
+    .syllabus-badge {
+      display: inline-block;
+      color: #1cb0f6;
+      background: #eaf5ff;
+      border-radius: 7px;
+      padding: 2px 9px;
+      font-size: .97em;
+      margin-right: 6px;
+      font-weight: 600;
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      .lib-container {
+        padding: 14px 2vw 17px 2vw;
+      }
+      .section-title { font-size: 1.15em; }
+      .resource-card { padding: 14px 9px 10px 14px;}
+      .lib-header h1 { font-size: 1.19em;}
+      .resource-cards { gap: 13px; }
+      .resource-title { font-size: 1em;}
+    }
+  </style>
+</head>
+<body>
+  <div class="lib-container">
+    <div class="lib-header">
+      <h1>
+        <i class="fa-solid fa-book" style="color:#2196f3; margin-right:10px;"></i>
+       Kalangalala Secondary school Maktaba & Rasilimali za Wanafunzi (Form I - VI)
+      </h1>
+      <p>
+        Karibu kwenye maktaba ya shule! Hapa utapata vitabu, mitihani na miongozo mbalimbali - vimepangwa kwa makundi ya wanafunzi kuanzia kidato cha kwanza hadi cha sita. Pia kuna syllabus rasmi za O-level na A-level.
+      </p>
+    </div>
+
+    <!-- SECTION: BOOKS -->
+    <div class="resource-section">
+      <div class="section-title">
+        <i class="fa-solid fa-book-open-reader"></i>
+        Vitabu (Books)
+      </div>
+      <div class="resource-cards">
+        <!-- Form I - VI Books: TIE, Oxford, Revision, Others -->
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-1"></i> Form One</span>
+          <ul class="resource-list">
+            <li><b>TIE Books:</b> Physics, Chemistry, Biology, Mathematics, English, Kiswahili</li>
+            <li><b>Oxford Books:</b> Mathematics, English Grammar, Physics</li>
+            <li><b>Revision Books:</b> Science Revision, Social Studies Revision</li>
+            <li><b>Other Materials:</b> Past Papers, Notes, Practicals</li>
+          </ul>
+          <span class="badge-resource">Form I</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-2"></i> Form Two</span>
+          <ul class="resource-list">
+            <li><b>TIE Books:</b> History, Geography, Kiswahili, English, Biology, Chemistry</li>
+            <li><b>Oxford Books:</b> Geography, Science, English</li>
+            <li><b>Revision Books:</b> History Revision, English Practice</li>
+            <li><b>Other Materials:</b> Study Guides, Extra Notes</li>
+          </ul>
+          <span class="badge-resource">Form II</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-3"></i> Form Three</span>
+          <ul class="resource-list">
+            <li><b>TIE Books:</b> Physics, Chemistry, Biology, Mathematics, Book Keeping</li>
+            <li><b>Oxford Books:</b> Book Keeping, Physics, Chemistry</li>
+            <li><b>Revision Books:</b> Science Revision, Commerce Revision</li>
+            <li><b>Other Materials:</b> Sample Projects, Case Studies</li>
+          </ul>
+          <span class="badge-resource">Form III</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-4"></i> Form Four</span>
+          <ul class="resource-list">
+            <li><b>TIE Books:</b> Geography, Kiswahili, Civics, English</li>
+            <li><b>Oxford Books:</b> History, Commerce, English</li>
+            <li><b>Revision Books:</b> Final Revision, Exam Practice</li>
+            <li><b>Other Materials:</b> Marking Schemes, Exam Reports</li>
+          </ul>
+          <span class="badge-resource">Form IV</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-5"></i> Form Five</span>
+          <ul class="resource-list">
+            <li><b>TIE Books:</b> Advanced Mathematics, Geography, Physics, Chemistry, Biology, Economics</li>
+            <li><b>Oxford Books:</b> Physics, Chemistry, Biology, Economics</li>
+            <li><b>Revision Books:</b> A-Level Revision, Past Papers</li>
+            <li><b>Other Materials:</b> Research Projects, Lab Guides</li>
+          </ul>
+          <span class="badge-resource">Form V</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-6"></i> Form Six</span>
+          <ul class="resource-list">
+            <li><b>TIE Books:</b> Advanced Mathematics, Geography, History, Biology, Chemistry, General Studies</li>
+            <li><b>Oxford Books:</b> General Studies, Advanced Mathematics, History</li>
+            <li><b>Revision Books:</b> Final Revision, Model Papers</li>
+            <li><b>Other Materials:</b> Project Reports, Sample Essays</li>
+          </ul>
+          <span class="badge-resource">Form VI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: EXAMS -->
+    <div class="resource-section">
+      <div class="section-title">
+        <i class="fa-solid fa-file-lines"></i>
+        Mitihani (Exams)
+      </div>
+      <div class="resource-cards">
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-1"></i> Form One</span>
+          <ul class="resource-list">
+            <li><b>NECTA Previous Exams</b></li>
+            <li><b>Mock Exams (All Regions)</b></li>
+            <li><b>Terminal Exams</b></li>
+            <li><b>Zonal Exams (All Zones)</b></li>
+          </ul>
+          <span class="badge-resource">Form I</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-2"></i> Form Two</span>
+          <ul class="resource-list">
+            <li><b>NECTA Previous Exams</b></li>
+            <li><b>Mock Exams (All Regions)</b></li>
+            <li><b>Terminal Exams</b></li>
+            <li><b>Zonal Exams (All Zones)</b></li>
+          </ul>
+          <span class="badge-resource">Form II</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-3"></i> Form Three</span>
+          <ul class="resource-list">
+            <li><b>NECTA Previous Exams</b></li>
+            <li><b>Mock Exams (All Regions)</b></li>
+            <li><b>Terminal Exams</b></li>
+            <li><b>Zonal Exams (All Zones)</b></li>
+          </ul>
+          <span class="badge-resource">Form III</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-4"></i> Form Four</span>
+          <ul class="resource-list">
+            <li><b>NECTA Previous Exams</b></li>
+            <li><b>Mock Exams (All Regions)</b></li>
+            <li><b>Terminal Exams</b></li>
+            <li><b>Zonal Exams (All Zones)</b></li>
+          </ul>
+          <span class="badge-resource">Form IV</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-5"></i> Form Five</span>
+          <ul class="resource-list">
+            <li><b>NECTA Previous Exams</b></li>
+            <li><b>Mock Exams (All Regions)</b></li>
+            <li><b>Terminal Exams</b></li>
+            <li><b>Zonal Exams (All Zones)</b></li>
+          </ul>
+          <span class="badge-resource">Form V</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title"><i class="fa-solid fa-6"></i> Form Six</span>
+          <ul class="resource-list">
+            <li><b>NECTA Previous Exams</b></li>
+            <li><b>Mock Exams (All Regions)</b></li>
+            <li><b>Terminal Exams</b></li>
+            <li><b>Zonal Exams (All Zones)</b></li>
+          </ul>
+          <span class="badge-resource">Form VI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: SYLLABUS -->
+    <div class="resource-section">
+      <div class="section-title">
+        <i class="fa-solid fa-file-alt"></i>
+        Syllabus (O-Level & A-Level)
+      </div>
+      <table class="syllabus-table">
+        <tr>
+          <th>Mfumo</th>
+          <th>Kidato</th>
+          <th>Masomo</th>
+          <th>Link ya Syllabus</th>
+        </tr>
+        <tr>
+          <td><span class="syllabus-badge">O-Level</span></td>
+          <td>Form I-IV</td>
+          <td>Kiswahili, English, Mathematics, Physics, Biology, Chemistry, History, Geography, Civics, Book Keeping, Commerce, ICT</td>
+          <td><a href="#">Pakua Syllabus (PDF)</a></td>
+        </tr>
+        <tr>
+          <td><span class="syllabus-badge">A-Level</span></td>
+          <td>Form V-VI</td>
+          <td>PCM, PCB, EGM, HGL, CBG, HKL, Economics, General Studies, Literature, Geography, History, Advanced Mathematics, Physics, Chemistry, Biology</td>
+          <td><a href="#">Pakua Syllabus (PDF)</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

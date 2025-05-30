@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kalangalala Secondary School - Teacher Registration Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f3f8ff 0%, #dde6f7 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a2748;
+      min-height: 100vh;
+    }
+    .form-outer-container {
+      max-width: 480px;
+      margin: 55px auto 0 auto;
+      background: #fff;
+      border-radius: 23px;
+      box-shadow: 0 8px 40px 0 rgba(31,49,116,0.15), 0 2px 8px 0 rgba(31,41,60,0.08);
+      padding: 0 0 32px 0;
+      transition: box-shadow 0.3s;
+    }
+    .form-outer-container:hover {
+      box-shadow: 0 12px 60px 0 #3370f21c, 0 6px 22px 0 #1cb0f616;
+    }
+    .school-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 32px;
+      padding-bottom: 8px;
+    }
+    .school-logo {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: #f3f7fe;
+      box-shadow: 0 3px 12px 0 #b2eaff66;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+      border: 3px solid #1cb0f6;
+    }
+    .school-heading {
+      text-align: center;
+      font-size: 1.45em;
+      font-weight: 800;
+      color: #2052a2;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 12px #b2eaff3b;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    .form-container {
+      max-width: 420px;
+      margin: 0 auto;
+      /* No background or box-shadow here, handled by outer */
+      padding: 0 32px;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 28px;
+      margin-top: 18px;
+    }
+    .form-header h2 {
+      font-size: 1.35em;
+      color: #2052a2;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      margin: 0 0 8px 0;
+    }
+    .form-header p {
+      font-size: 1.02em;
+      color: #5170b7;
+      margin: 0;
+    }
+    .register-form label {
+      font-weight: 600;
+      color: #18416d;
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: 0.4px;
+      font-size: 1em;
+    }
+    .register-form input[type="text"],
+    .register-form input[type="password"] {
+      width: 100%;
+      padding: 11px 12px;
+      margin-bottom: 19px;
+      border: 2px solid #c8ddfa;
+      border-radius: 8px;
+      background: #f4f8fe;
+      font-size: 1em;
+      transition: border 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      color: #23427a;
+    }
+    .register-form input[type="text"]:focus,
+    .register-form input[type="password"]:focus {
+      border-color: #1cb0f6;
+      box-shadow: 0 0 0 2px #b2eaff66;
+      background: #fff;
+    }
+    .password-rules {
+      font-size: 0.96em;
+      color: #6d7ea3;
+      margin-top: -12px;
+      margin-bottom: 17px;
+      padding-left: 5px;
+      line-height: 1.6;
+    }
+    .register-form button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(90deg, #1cb0f6 70%, #2052a2 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 0;
+      font-size: 1.13em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 2px 15px 0 #1cb0f622;
+      transition: background 0.18s, transform 0.11s;
+    }
+    .register-form button[type="submit"]:hover {
+      background: linear-gradient(90deg, #2052a2 60%, #1cb0f6 100%);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 19px;
+      color: #3a5c96;
+      font-size: 1em;
+    }
+    .login-link a {
+      color: #1cb0f6;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 6px;
+      transition: color 0.13s;
+    }
+    .login-link a:hover {
+      color: #2052a2;
+      text-decoration: underline;
+    }
+    .form-icon {
+      font-size: 2.1em;
+      color: #1cb0f6;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 4px 12px #b2eaff55);
+    }
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 19px;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #7ea3d9;
+      font-size: 1.19em;
+      z-index: 5;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .toggle-password:hover {
+      color: #1cb0f6;
+    }
+    .pass-feedback,
+    .conf-feedback {
+      font-size: 0.96em;
+      color: #cc2929;
+      margin: -13px 0 16px 5px;
+      min-height: 19px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .form-outer-container {
+        padding: 0 0 18px 0;
+      }
+      .form-container {
+        padding: 0 2vw;
+      }
+      .school-logo-container {
+        padding-top: 14px;
+      }
+      .school-logo {
+        width: 64px;
+        height: 64px;
+      }
+      .school-heading {
+        font-size: 1em;
+      }
+      .form-header h2 { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-outer-container">
+    <div class="school-logo-container">
+      <!-- Badilisha src ya img hapa kama una logo ya shule, hii ya chini ni mfano tu -->
+      <img class="school-logo" src="logo.jpg" alt="Kalangalala Secondary School Logo">
+      <div class="school-heading">KALANGALALA SECONDARY SCHOOL</div>
+    </div>
+    <div class="form-container">
+      <div class="form-header">
+        <div class="form-icon">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <h2>TEACHERS REGISTRATION FORM</h2>
+        <p>Tafadhali jaza taarifa zako za usajili. Hakikisha unatumia password yenye viwango vya juu vya usalama.</p>
+      </div>
+      <form class="register-form" autocomplete="off" onsubmit="return validateForm(event)">
+        <label for="tscnumber">Teachers Service Commission Number</label>
+        <input type="text" id="tscnumber" name="tscnumber" placeholder="Ingiza TSC Number yako" required pattern="^[A-Za-z0-9\-\/]+$" maxlength="30" autocomplete="off">
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Andika Password" required minlength="8" autocomplete="new-password" oninput="validatePassword(this.value)">
+          <button type="button" class="toggle-password" onclick="togglePassword('password','eye-icon')">
+            <i id="eye-icon" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <div class="password-rules">
+          Password lazima iwe na:<br>
+          <span id="length-rule">• Angalau herufi 8</span><br>
+          <span id="capital-rule">• Herufi kubwa (A-Z)</span><br>
+          <span id="number-rule">• Namba (0-9)</span><br>
+          <span id="special-rule">• Special character (!@#$%^&* n.k.)</span>
+        </div>
+        <span id="pass-feedback" class="pass-feedback"></span>
+
+        <label for="confirm-password">Thibitisha Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Andika tena Password" required minlength="8" autocomplete="new-password" oninput="validateConfirmPassword()">
+          <button type="button" class="toggle-password" onclick="togglePassword('confirm-password','eye-icon2')">
+            <i id="eye-icon2" class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <span id="conf-feedback" class="conf-feedback"></span>
+
+        <button type="submit">
+          <i class="fa-solid fa-user-plus"></i> Sajili Akaunti
+        </button>
+      </form>
+      <div class="login-link">
+        Tayari una akaunti?
+        <a href="Tlogin.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Password Show/Hide for both fields
+    function togglePassword(inputId, eyeId) {
+      const passInput = document.getElementById(inputId);
+      const eyeIcon = document.getElementById(eyeId);
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passInput.type = "password";
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Password validation
+    function validatePassword(value) {
+      const lengthRule = document.getElementById("length-rule");
+      const capitalRule = document.getElementById("capital-rule");
+      const numberRule = document.getElementById("number-rule");
+      const specialRule = document.getElementById("special-rule");
+      let passFeedback = "";
+
+      // Rules
+      const isLong = value.length >= 8;
+      const hasCap = /[A-Z]/.test(value);
+      const hasNum = /\d/.test(value);
+      const hasSpecial = /[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"'<>,\.\?\/\\|~`]/.test(value);
+
+      // UI feedback coloring
+      lengthRule.style.color = isLong ? "#26a626" : "#cc2929";
+      capitalRule.style.color = hasCap ? "#26a626" : "#cc2929";
+      numberRule.style.color = hasNum ? "#26a626" : "#cc2929";
+      specialRule.style.color = hasSpecial ? "#26a626" : "#cc2929";
+
+      if (!isLong) passFeedback = "Password ni fupi, weka angalau herufi 8.";
+      else if (!hasCap) passFeedback = "Weka angalau herufi kubwa moja.";
+      else if (!hasNum) passFeedback = "Weka angalau namba moja.";
+      else if (!hasSpecial) passFeedback = "Weka special character moja (!@#$%^&* n.k.).";
+      else passFeedback = "";
+
+      document.getElementById("pass-feedback").textContent = passFeedback;
+
+      // Check confirm password in real-time
+      validateConfirmPassword();
+    }
+
+    // Confirm password validation
+    function validateConfirmPassword() {
+      const pass = document.getElementById("password").value;
+      const conf = document.getElementById("confirm-password").value;
+      let confFeedback = "";
+      if (conf && pass !== conf) {
+        confFeedback = "Password hazifanani.";
+      } else {
+        confFeedback = "";
+      }
+      document.getElementById("conf-feedback").textContent = confFeedback;
+    }
+
+    // Form validation before submit
+    function validateForm(e) {
+      const pass = document.getElementById('password').value;
+      const conf = document.getElementById('confirm-password').value;
+      const isLong = pass.length >= 8;
+      const hasCap = /[A-Z]/.test(pass);
+      const hasNum = /\d/.test(pass);
+      const hasSpecial = /[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"'<>,\.\?\/\\|~`]/.test(pass);
+
+      let valid = true;
+
+      if (!(isLong && hasCap && hasNum && hasSpecial)) {
+        document.getElementById("pass-feedback").textContent = "Password haijakidhi vigezo vyote.";
+        valid = false;
+      } else {
+        document.getElementById("pass-feedback").textContent = "";
+      }
+
+      if (pass !== conf) {
+        document.getElementById("conf-feedback").textContent = "Password hazifanani.";
+        valid = false;
+      } else {
+        document.getElementById("conf-feedback").textContent = "";
+      }
+
+      if (!valid) {
+        e.preventDefault();
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

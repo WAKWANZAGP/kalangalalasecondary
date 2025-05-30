@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Accreditations za Shule</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="ttheme.css">
+  <link rel="stylesheet" href="header.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f4f8ff 0%, #e0e6f6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a2748;
+    }
+    .accreditations-container {
+      max-width: 900px;
+      margin: 38px auto 36px auto;
+      background: #fff;
+      border-radius: 23px;
+      box-shadow: 0 6px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 38px 5vw 38px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .accreditations-container:hover {
+      box-shadow: 0 12px 48px 0 rgba(31,49,116,0.16), 0 5px 18px 0 rgba(31,41,60,0.09);
+    }
+    .accreditations-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .accreditations-header h1 {
+      font-size: 2.3em;
+      margin: 0;
+      color: #23376b;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 14px #c1cbea40;
+    }
+    .accreditations-header p {
+      font-size: 1.11em;
+      color: #5e6e99;
+      margin: 14px 0 0 0;
+      line-height: 1.4;
+    }
+
+    .accreditation-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 28px;
+      margin-top: 35px;
+    }
+
+    .accreditation-card {
+      background: linear-gradient(110deg, #e5eefd 90%, #f7f9ff 100%);
+      border-radius: 16px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.10);
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.13s;
+      position: relative;
+    }
+    .accreditation-card:hover {
+      box-shadow: 0 6px 24px 0 #ffdb7090, 0 1.5px 12px 0 rgba(41,70,140,0.17);
+      transform: translateY(-4px) scale(1.018);
+    }
+    .accreditation-card .accr-icon {
+      font-size: 2.2em;
+      color: #305bb3;
+      margin-bottom: 13px;
+      transition: color 0.2s;
+      filter: drop-shadow(0 3px 8px #dbe8fa);
+    }
+    .accreditation-card:hover .accr-icon {
+      color: #ffb700;
+      filter: drop-shadow(0 4px 18px #ffe9b0);
+    }
+    .accreditation-title {
+      font-size: 1.17em;
+      font-weight: 700;
+      color: #22325c;
+      margin-bottom: 7px;
+      letter-spacing: 1.2px;
+    }
+    .accreditation-desc {
+      font-size: 1em;
+      color: #45507a;
+      margin-bottom: 0;
+      line-height: 1.66;
+    }
+    .accr-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #ffdb70;
+      color: #263a6b;
+      font-size: 0.95em;
+      padding: 3px 14px 3px 13px;
+      border-radius: 14px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #ffdb7040;
+      letter-spacing: .5px;
+      animation: badge-glow 2s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #ffdb7040;}
+      100% { box-shadow: 0 2px 25px 0 #ffdb70c0;}
+    }
+
+    @media (max-width: 600px) {
+      .accreditations-container {
+        padding: 16px 2vw 18px 2vw;
+      }
+      .accreditations-header h1 {
+        font-size: 1.34em;
+      }
+      .accreditation-card {
+        padding: 17px 8px 17px 13px;
+      }
+      .accreditation-list {
+        gap: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+      <div class="school-headerbox">
+  <!-- Logo & Title -->
+  <div class="school-header-main">
+    <div class="school-logo-anim" tabindex="0">
+      <img src="logo.jpg" alt="Kalangalala Logo" class="logo-img" />
+      <span class="logo-glow"></span>
+    </div>
+    <span class="school-title">KALANGALALA SECONDARY SCHOOL</span>
+  </div>
+  <!-- Feature List (right, vertical) -->
+  <div class="school-header-features">
+    <button onclick="openChatbot()">Uliza KALANGALALA offices</button>
+
+<!-- Chatbot Widget -->
+<div id="chatbot-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; background:#fff; border:1px solid #ccc; box-shadow:0 4px 16px rgba(0,0,0,0.1); z-index:1000;">
+  <div style="background:#27408b; color:#fff; padding:10px;">KALANGALALA OFFICES <span onclick="closeChatbot()" style="float:right; cursor:pointer;">&times;</span></div>
+  <div id="chatbot-messages" style="height:250px; padding:10px; overflow:auto;"></div>
+  <input id="chatbot-input" type="text" style="width:80%; margin:10px;" placeholder="Andika swali lako..." onkeydown="if(event.key==='Enter'){sendChatbotMessage();}">
+  <button onclick="sendChatbotMessage()">Tuma</button>
+</div>
+
+<script>
+function openChatbot() {
+  document.getElementById('chatbot-container').style.display = 'block';
+}
+function closeChatbot() {
+  document.getElementById('chatbot-container').style.display = 'none';
+}
+async function sendChatbotMessage() {
+  const input = document.getElementById('chatbot-input');
+  const message = input.value;
+  if (!message) return;
+  const messagesDiv = document.getElementById('chatbot-messages');
+  messagesDiv.innerHTML += `<div><b>Wewe:</b> ${message}</div>`;
+  input.value = '';
+  // CALL AI API HERE (e.g., OpenAI, Google Dialogflow)
+  // Hapa tumeweka response ya mfano tu:
+  let aiResponse = "Samahani, selection zitatoka mara baada tu ya kukamilika mpangilio. Tafadhali endelea kusubili.";
+  messagesDiv.innerHTML += `<div><b>AI:</b> ${aiResponse}</div>`;
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+</script>
+    <div class="header-feature-search">
+      <input type="text" id="ai-search" placeholder="Tafuta taarifa ya shule..." onkeydown="if(event.key==='Enter'){aiSmartSearch();}">
+<div id="ai-search-results"></div>
+
+<script>
+async function aiSmartSearch() {
+  const query = document.getElementById('ai-search').value;
+  if (!query) return;
+  // CALL AI SEARCH API HERE
+  // Mfano tu wa matokeo:
+  document.getElementById('ai-search-results').innerHTML = "<b>Matokeo:</b> Samahani, AI search haijaunganishwa bado.";
+}
+</script>
+      
+    </div>
+    <button class="header-feature-btn voice-bar" title="Voice Conversation">
+      <i class="fas fa-microphone"></i>
+      <button onclick="startVoice()">Uliza kwa Sauti</button>
+<input type="text" id="voice-input" placeholder="Swali lako litaonekana hapa...">
+
+<script>
+function startVoice() {
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = 'sw-KE'; // Swahili (Kenya)
+  recognition.start();
+  recognition.onresult = function(event) {
+    document.getElementById('voice-input').value = event.results[0][0].transcript;
+  };
+  recognition.onerror = function(event) {
+    alert("Imeshindikana kusikiliza sauti.");
+  };
+}
+</script>
+    </button>
+  </div>
+</div>
+
+
+    <nav>
+  <ul style="list-style:none; display:flex; gap: 1em; padding:0;">
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="academic.html">ACADEMIC</a></li>
+    <li><a href="accounts.html">ACCOUNTS</a></li>
+    <li><a href="admission.html">ADMISSION</a></li>
+    <li><a href="events.html">EVENTS</a></li>
+    <li>
+        <div class="theme-switcher">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+</li>
+  </ul>
+
+</nav>
+  <div class="accreditations-container">
+    <div class="accreditations-header">
+      <h1>
+        <i class="fa-solid fa-award" style="color:#ffb700; margin-right:10px;"></i>
+        Accreditations Muhimu za Shule
+      </h1>
+      <p>
+        Hizi ndizo accreditations muhimu ambazo shule inatakiwa kupata au kutoa ili kubaki kwenye viwango vya kitaifa na kimataifa vya elimu.
+      </p>
+    </div>
+    <div class="accreditation-list">
+      <!-- Example Accreditation: Registration -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-certificate"></i></span>
+        <span class="accreditation-title">Usajili wa Shule (Ministry of Education)</span>
+        <span class="accreditation-desc">
+          Shule lazima ipate cheti cha usajili kutoka Wizara ya Elimu, Sayansi na Teknolojia, kuthibitisha kutambulika rasmi kisheria.
+        </span>
+        <span class="accr-badge">Mandatory</span>
+      </div>
+      <!-- Example Accreditation: NECTA -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span class="accreditation-title">Uidhinishaji wa Mitihani (NECTA)</span>
+        <span class="accreditation-desc">
+          Shule lazima iidhinishwe na Baraza la Mitihani la Taifa (NECTA) ili wanafunzi wake waruhusiwe kufanya mitihani rasmi ya kitaifa.
+        </span>
+        <span class="accr-badge">Mandatory</span>
+      </div>
+      <!-- Example Accreditation: Health & Safety -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-shield-heart"></i></span>
+        <span class="accreditation-title">Vyeti vya Afya na Usalama (Health & Safety)</span>
+        <span class="accreditation-desc">
+          Shule inapaswa kuwa na vyeti vya ukaguzi wa afya, usalama wa mazingira, na kinga dhidi ya majanga kutoka mamlaka husika (mf. Fire, Afya ya Mazingira).
+        </span>
+        <span class="accr-badge">Required</span>
+      </div>
+      <!-- Example Accreditation: TCU/Nacte for A-level/Technical -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-university"></i></span>
+        <span class="accreditation-title">Uthibitisho wa Kozi za Juu (TCU/NACTE)</span>
+        <span class="accreditation-desc">
+          Kwa shule zinazofundisha Advanced Level au kozi za ufundi, ni lazima kupata ithibati kutoka TCU au NACTE.
+        </span>
+        <span class="accr-badge">Conditional</span>
+      </div>
+      <!-- Example Accreditation: Teacher Professional Registration -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-user-tie"></i></span>
+        <span class="accreditation-title">Usajili wa Walimu (Teachers Council)</span>
+        <span class="accreditation-desc">
+          Walimu wote lazima wasajiliwe na kupata cheti kutoka Baraza la Walimu Tanzania (Teachers Council of Tanzania).
+        </span>
+        <span class="accr-badge">Mandatory</span>
+      </div>
+      <!-- Example Accreditation: School Laboratory Certification -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-vials"></i></span>
+        <span class="accreditation-title">Uthibitisho wa Maabara (Lab Certification)</span>
+        <span class="accreditation-desc">
+          Maabara za shule lazima zipate uthibitisho wa ubora na usalama kutoka mamlaka za elimu na afya.
+        </span>
+        <span class="accr-badge">Required</span>
+      </div>
+      <!-- Example Accreditation: Disability Inclusion -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-universal-access"></i></span>
+        <span class="accreditation-title">Uthibitisho wa Huduma kwa Wenye Ulemavu</span>
+        <span class="accreditation-desc">
+          Shule inapaswa kuwa na miundombinu na uthibitisho wa kutoa huduma bora kwa wanafunzi wenye ulemavu.
+        </span>
+        <span class="accr-badge">Recommended</span>
+      </div>
+      <!-- Example Accreditation: Co-curricular Approval -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-futbol"></i></span>
+        <span class="accreditation-title">Uidhinishaji wa Shughuli za Michezo & Sanaa</span>
+        <span class="accreditation-desc">
+          Shule inashauriwa kupata uidhinishaji wa programu za michezo na sanaa kutoka mamlaka za elimu au michezo.
+        </span>
+        <span class="accr-badge">Recommended</span>
+      </div>
+      <!-- Example Accreditation: ISO/Quality -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-medal"></i></span>
+        <span class="accreditation-title">ISO au Cheti cha Ubora (Quality Certification)</span>
+        <span class="accreditation-desc">
+          Kwa shule zinazotaka kujitofautisha kimataifa, cheti cha ubora kama ISO 9001:2015 kinaongeza hadhi na uaminifu.
+        </span>
+        <span class="accr-badge">Optional</span>
+      </div>
+      <!-- Example Accreditation: School Bus Licensing -->
+      <div class="accreditation-card">
+        <span class="accr-icon"><i class="fas fa-bus"></i></span>
+        <span class="accreditation-title">Leseni za Usafiri wa Shule (School Buses)</span>
+        <span class="accreditation-desc">
+          Mabasi ya shule lazima yawe na leseni na vyeti vya ukaguzi wa usalama kutoka SUMATRA au LATRA.
+        </span>
+        <span class="accr-badge">Conditional</span>
+      </div>
+    </div>
+  </div>
+  <footer class="main-footer">
+  <div class="footer-content container">
+    <div class="footer-section social-links">
+      <h3>Tu-follow</h3>
+      <ul>
+        <li>
+          <a href="https://facebook.com/" target="_blank" rel="noopener">
+            <i class="fab fa-facebook-f"></i> Facebook: Kalangalala Secondary School
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/" target="_blank" rel="noopener">
+            <i class="fab fa-twitter"></i> Twitter: Kalangalala Secondary School
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i> Instagram: Kalangalala Secondary School
+          </a>
+        </li>
+        <li>
+          <a href="mailto:kalangalalasecondaryschool.co@gmail.com">
+            <i class="fas fa-envelope"></i> Email: kalangalalasecondaryschool.co@gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-section related-search">
+      <h3>Related Search</h3>
+      <ul>
+        <li><a href="https://wazaelimu.com/" target="_blank" rel="noopener">Wazaelimu</a></li>
+        <li><a href="https://necta.go.tz/" target="_blank" rel="noopener">NECTA</a></li>
+        <li><a href="https://www.tamisemi.go.tz/" target="_blank" rel="noopener">TAMISEMI</a></li>
+        <li><a href="#">Elimu Tanzania</a></li>
+        <!-- Ongeza zaidi kama unahitaji -->
+      </ul>
+    </div>
+    <div class="footer-section developer-badge">
+      <div class="dev-badge">
+        <span>Developed by</span>
+        <span class="dev-name">Doijasson</span>
+        <span class="badge-glow"></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Kalangalala Secondary School. All rights reserved.
+  </div>
+</footer>
+<script src="theme.js"></script>
+<!-- Font Awesome CDN for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+</body>
+</html>

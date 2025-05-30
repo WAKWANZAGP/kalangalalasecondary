@@ -1,0 +1,432 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KALANGALALA SECONDARY SCHOOL</title>
+  <link rel="stylesheet" href="mission.css" />
+  <link rel="stylesheet" href="footer.css">
+  <link rel="icon" type="image/png" href="logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f3f8ff 0%, #e0e7f5 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a2748;
+    }
+    .missions-container {
+      max-width: 900px;
+      margin: 40px auto 36px auto;
+      background: #fff;
+      border-radius: 23px;
+      box-shadow: 0 6px 38px 0 rgba(31,49,116,0.13), 0 2px 8px 0 rgba(31,41,60,0.07);
+      padding: 38px 5vw 38px 5vw;
+      transition: box-shadow 0.3s;
+    }
+    .missions-container:hover {
+      box-shadow: 0 12px 48px 0 rgba(31,49,116,0.16), 0 5px 18px 0 rgba(31,41,60,0.09);
+    }
+    .missions-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .missions-header h1 {
+      font-size: 2.3em;
+      margin: 0;
+      color: #23376b;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 14px #c1cbea40;
+    }
+    .missions-header p {
+      font-size: 1.12em;
+      color: #5e6e99;
+      margin: 14px 0 0 0;
+      line-height: 1.45;
+    }
+
+    .mission-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 28px;
+      margin-top: 35px;
+    }
+
+    .mission-card {
+      background: linear-gradient(110deg, #e8f0fe 90%, #f7f9ff 100%);
+      border-radius: 17px;
+      box-shadow: 0 1.5px 12px 0 rgba(41,70,140,0.10);
+      padding: 26px 22px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.13s;
+      position: relative;
+    }
+    .mission-card:hover {
+      box-shadow: 0 6px 24px 0 #69b3f790, 0 1.5px 12px 0 rgba(41,70,140,0.17);
+      transform: translateY(-4px) scale(1.018);
+    }
+    .mission-card .mission-icon {
+      font-size: 2.2em;
+      color: #387ee9;
+      margin-bottom: 13px;
+      transition: color 0.2s;
+      filter: drop-shadow(0 3px 8px #dbe8fa);
+    }
+    .mission-card:hover .mission-icon {
+      color: #3ec1d3;
+      filter: drop-shadow(0 4px 18px #bbf6ff);
+    }
+    .mission-title {
+      font-size: 1.17em;
+      font-weight: 700;
+      color: #22325c;
+      margin-bottom: 7px;
+      letter-spacing: 1.1px;
+    }
+    .mission-desc {
+      font-size: 1em;
+      color: #45507a;
+      margin-bottom: 0;
+      line-height: 1.66;
+    }
+    .mission-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #3ec1d3;
+      color: #fff;
+      font-size: 0.96em;
+      padding: 3px 14px 3px 13px;
+      border-radius: 13px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 #bbf6ff80;
+      letter-spacing: .5px;
+      animation: badge-glow 2s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badge-glow {
+      0% { box-shadow: 0 2px 10px 0 #bbf6ff80;}
+      100% { box-shadow: 0 2px 22px 0 #3ec1d3bb;}
+    }
+
+    @media (max-width: 600px) {
+      .missions-container {
+        padding: 16px 2vw 18px 2vw;
+      }
+      .missions-header h1 {
+        font-size: 1.35em;
+      }
+      .mission-card {
+        padding: 17px 8px 17px 13px;
+      }
+      .mission-list {
+        gap: 13px;
+      }
+    }
+  </style>
+</head>
+</head>
+<body>
+  <div class="missions-container">
+    <div class="missions-header">
+      <h1>
+        <i class="fa-solid fa-bullseye" style="color:#3ec1d3; margin-right:10px;"></i>
+        MAENGO/MISSIONS YA SHULE YA SECONDARY KALANGALALA
+      </h1>
+      <p>
+        Hizi ni missions muhimu ambazo shule inapaswa kuwa nazo au kutoa ili kufanikisha malengo ya elimu bora na maendeleo ya jamii.
+      </p>
+    </div>
+    <div class="mission-list">
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-book-reader"></i></span>
+        <span class="mission-title">Kutoa Elimu Bora</span>
+        <span class="mission-desc">
+          Kusimamia utoaji wa elimu iliyo bora, inayokidhi viwango vya kitaifa na kimataifa, na kumwezesha mwanafunzi kupata ujuzi na maarifa stahiki.
+        </span>
+        <span class="mission-badge">Elimu</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-users"></i></span>
+        <span class="mission-title">Kukuza Maadili na Nidhamu</span>
+        <span class="mission-desc">
+          Kulea wanafunzi katika misingi ya maadili, uadilifu, heshima na uwajibikaji kwa jamii na taifa.
+        </span>
+        <span class="mission-badge">Maadili</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-lightbulb"></i></span>
+        <span class="mission-title">Kuchochea Ubunifu na Uvumbuzi</span>
+        <span class="mission-desc">
+          Kukuza na kuendeleza vipaji, ubunifu, na uwezo wa kutatua changamoto kwa njia mpya na bunifu.
+        </span>
+        <span class="mission-badge">Ubunifu</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-hand-holding-heart"></i></span>
+        <span class="mission-title">Kulea Utu na Mshikamano</span>
+        <span class="mission-desc">
+          Kukuza upendo, mshikamano na ushirikiano miongoni mwa wanafunzi, walimu na jamii kwa ujumla.
+        </span>
+        <span class="mission-badge">Jamii</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-globe-africa"></i></span>
+        <span class="mission-title">Kukuza Uraia na Uzalendo</span>
+        <span class="mission-desc">
+          Kukuza moyo wa uzalendo, utii kwa sheria za nchi na uwajibikaji kama raia bora wa Tanzania na dunia.
+        </span>
+        <span class="mission-badge">Uraia</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-seedling"></i></span>
+        <span class="mission-title">Kuhimiza Utunzaji wa Mazingira</span>
+        <span class="mission-desc">
+          Kuelimisha na kuhamasisha wanafunzi kuhusu umuhimu wa kutunza mazingira na rasilimali za asili kwa maendeleo endelevu.
+        </span>
+        <span class="mission-badge">Mazingira</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-futbol"></i></span>
+        <span class="mission-title">Kukuza Vipaji vya Michezo na Sanaa</span>
+        <span class="mission-desc">
+          Kutoa fursa na mazingira ya kukuza vipaji vya michezo, sanaa na burudani ili kukuza afya na kipaji cha mwanafunzi.
+        </span>
+        <span class="mission-badge">Vipaji</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-laptop-code"></i></span>
+        <span class="mission-title">Kukuza Ujuzi wa Teknolojia</span>
+        <span class="mission-desc">
+          Kuhakikisha wanafunzi wanapata maarifa na ujuzi wa kisasa wa teknolojia ya habari na mawasiliano (TEHAMA).
+        </span>
+        <span class="mission-badge">Teknolojia</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-handshake"></i></span>
+        <span class="mission-title">Kushirikiana na Wadau wa Elimu</span>
+        <span class="mission-desc">
+          Kuimarisha ushirikiano kati ya shule, wazazi, serikali na wadau mbalimbali ili kuboresha mazingira ya elimu na mafanikio ya shule.
+        </span>
+        <span class="mission-badge">Wadau</span>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon"><i class="fas fa-medal"></i></span>
+        <span class="mission-title">Kuchochea Ushindani wa Kimataifa</span>
+        <span class="mission-desc">
+          Kuweka mazingira ya wanafunzi kuweza kushindana kimataifa katika taaluma, michezo na ubunifu.
+        </span>
+        <span class="mission-badge">Ufanisi</span>
+      </div>
+    </div>
+  </div>
+  <nav>
+  <ul style="list-style:none; display:flex; gap: 1em; padding:0;">
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="academic.html">ACADEMIC</a></li>
+    <li><a href="accounts.html">ACCOUNTS</a></li>
+    <li><a href="admission.html">ADMISSION</a></li>
+    <li><a href="events.html">EVENTS</a></li>
+    
+    <li>
+        <div class="theme-switcher">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+</li>
+  </ul>
+</nav>
+  <div class="container">
+    <div class="card">
+      <h3>Maneno au Picha</h3>
+      <p>Hapa unaweza kuweka maandishi au maelezo.</p>
+      <img src="images (1).jpg" alt="Mfano wa picha" />
+    </div>
+    <div class="card">
+      <h3>Video au Maelezo</h3>
+      <video controls width="100%">
+        <source src="2.mp4" type="video/mp4" />
+        Browser yako haiungi mkono video tag.
+      </video>
+    </div>
+  </div>
+  <P>Hapa unaweza kuweka maandiko au maelezo mengine.</P>
+
+  </nav>
+  <div class="container">
+    <div class="card">
+      <h3>Maneno au Picha</h3>
+      <p>Hapa unaweza kuweka maandishi au maelezo.</p>
+      <img src="images (2).jpg" alt="Mfano wa picha" />
+    </div>
+    
+    <div class="card">
+      <h3>Video au Maelezo</h3>
+      <video controls width="100%">
+        <source src="1.mp4" type="video/mp4" />
+        Browser yako haiungi mkono video tag.
+      </video>
+    </div>
+  </div>
+  </nav>
+   <P>Hapa unaweza kuweka maandiko au maelezo mengine.</P>
+
+  <div class="container">
+    <div class="card">
+      <h3>Maneno au Picha</h3>
+      <p>Hapa unaweza kuweka maandishi au maelezo.</p>
+      <img src="images (3).jpg" alt="Mfano wa picha" />
+    </div>
+    <div class="card">
+      <h3>Video au Maelezo</h3>
+      <video controls width="100%">
+        <source src="2.mp4" type="video/mp4" />
+        Browser yako haiungi mkono video tag.
+      </video>
+    </div>
+  </div>
+  </nav>
+   <P>Hapa unaweza kuweka maandiko au maelezo mengine.</P>
+
+  <div class="container">
+    <div class="card">
+      <h3>Maneno au Picha</h3>
+      <p>Hapa unaweza kuweka maandishi au maelezo.</p>
+      <img src="images (4).jpg" alt="Mfano wa picha" />
+    </div>
+    <div class="card">
+      <h3>Video au Maelezo</h3>
+      <video controls width="100%">
+        <source src="1.mp4" type="video/mp4" />
+        Browser yako haiungi mkono video tag.
+      </video>
+    </div>
+  </div>
+
+  <!-- Chatbot Button -->
+<button onclick="openChatbot()">Uliza KALANGALALA offices</button>
+
+<!-- Chatbot Widget -->
+<div id="chatbot-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; background:#fff; border:1px solid #ccc; box-shadow:0 4px 16px rgba(0,0,0,0.1); z-index:1000;">
+  <div style="background:#27408b; color:#fff; padding:10px;">KALANGALALA OFFICES <span onclick="closeChatbot()" style="float:right; cursor:pointer;">&times;</span></div>
+  <div id="chatbot-messages" style="height:250px; padding:10px; overflow:auto;"></div>
+  <input id="chatbot-input" type="text" style="width:80%; margin:10px;" placeholder="Andika swali lako..." onkeydown="if(event.key==='Enter'){sendChatbotMessage();}">
+  <button onclick="sendChatbotMessage()">Tuma</button>
+</div>
+
+<script>
+function openChatbot() {
+  document.getElementById('chatbot-container').style.display = 'block';
+}
+function closeChatbot() {
+  document.getElementById('chatbot-container').style.display = 'none';
+}
+async function sendChatbotMessage() {
+  const input = document.getElementById('chatbot-input');
+  const message = input.value;
+  if (!message) return;
+  const messagesDiv = document.getElementById('chatbot-messages');
+  messagesDiv.innerHTML += `<div><b>Wewe:</b> ${message}</div>`;
+  input.value = '';
+  // CALL AI API HERE (e.g., OpenAI, Google Dialogflow)
+  // Hapa tumeweka response ya mfano tu:
+  let aiResponse = "Samahani, selection zitatoka mara baada tu ya kukamilika mpangilio. Tafadhali endelea kusubili.";
+  messagesDiv.innerHTML += `<div><b>AI:</b> ${aiResponse}</div>`;
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+</script>
+
+<input type="text" id="ai-search" placeholder="Tafuta taarifa ya shule..." onkeydown="if(event.key==='Enter'){aiSmartSearch();}">
+<div id="ai-search-results"></div>
+
+<script>
+async function aiSmartSearch() {
+  const query = document.getElementById('ai-search').value;
+  if (!query) return;
+  // CALL AI SEARCH API HERE
+  // Mfano tu wa matokeo:
+  document.getElementById('ai-search-results').innerHTML = "<b>Matokeo:</b> Samahani, AI search haijaunganishwa bado.";
+}
+</script>
+<button onclick="startVoice()">Uliza kwa Sauti</button>
+<input type="text" id="voice-input" placeholder="Swali lako litaonekana hapa...">
+
+<script>
+function startVoice() {
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = 'sw-KE'; // Swahili (Kenya)
+  recognition.start();
+  recognition.onresult = function(event) {
+    document.getElementById('voice-input').value = event.results[0][0].transcript;
+  };
+  recognition.onerror = function(event) {
+    alert("Imeshindikana kusikiliza sauti.");
+  };
+}
+</script>
+<footer class="main-footer">
+  <div class="footer-content container">
+    <div class="footer-section social-links">
+      <h3>Tu-follow</h3>
+      <ul>
+        <li>
+          <a href="https://facebook.com/" target="_blank" rel="noopener">
+            <i class="fab fa-facebook-f"></i> Facebook: Kalangalala Secondary School
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/" target="_blank" rel="noopener">
+            <i class="fab fa-twitter"></i> Twitter: Kalangalala Secondary School
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i> Instagram: Kalangalala Secondary School
+          </a>
+        </li>
+        <li>
+          <a href="mailto:kalangalalasecondaryschool.co@gmail.com">
+            <i class="fas fa-envelope"></i> Email: kalangalalasecondaryschool.co@gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-section related-search">
+      <h3>Related Search</h3>
+      <ul>
+        <li><a href="https://wazaelimu.com/" target="_blank" rel="noopener">Wazaelimu</a></li>
+        <li><a href="https://necta.go.tz/" target="_blank" rel="noopener">NECTA</a></li>
+        <li><a href="https://www.tamisemi.go.tz/" target="_blank" rel="noopener">TAMISEMI</a></li>
+        <li><a href="#">Elimu Tanzania</a></li>
+        <!-- Ongeza zaidi kama unahitaji -->
+      </ul>
+    </div>
+    <div class="footer-section developer-badge">
+      <div class="dev-badge">
+        <span>Developed by</span>
+        <span class="dev-name">Doijasson</span>
+        <span class="badge-glow"></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Kalangalala Secondary School. All rights reserved.
+  </div>
+</footer>
+<script src="theme.js"></script>
+<!-- Font Awesome CDN for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+  <script src="mission.js"></script>
+</body>
+</html>
